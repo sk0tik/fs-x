@@ -250,7 +250,7 @@
                 <VisualState x:Name="ElseDevice" />
                 <VisualState x:Name="Xbox">
                   <VisualState.StateTriggers>
-                    <winTriggers:DeviceFamilyStateTrigger DeviceFamily="Xbox" />
+                    <!--<winTriggers:DeviceFamilyStateTrigger DeviceFamily="Xbox" />-->
                   </VisualState.StateTriggers>
                   <VisualState.Setters>
                     <Setter Target="CastButton.Visibility" Value="Collapsed" />

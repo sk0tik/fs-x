@@ -80,7 +80,7 @@
             }
             else if (folder.Count == 0)
             {
-                var nodes = currentItems
+                var nodes = currentItems!
                     .Where(i => i.Link != null)
                     .Select(i => new LookbaseFolder(Site, $"lkbs{i.SiteId}", i.Link!, FolderType.Item, PositionBehavior.Max)
                     {

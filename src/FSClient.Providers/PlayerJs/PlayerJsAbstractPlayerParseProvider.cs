@@ -67,7 +67,7 @@
                 .ToArrayAsync(cancellationToken)
                 .ConfigureAwait(false);
 
-            var fileId = config.NodeIdPrefix + Regex.Match(httpUri.GetPath(), config.IdRegex).Groups["id"].Value;
+            var fileId = config.NodeIdPrefix + Regex.Match(httpUri.GetPath(), config.IdRegex!).Groups["id"].Value;
             var file = new File(Site.Parse(key, default, true), fileId);
             file.FrameLink = httpUri;
             file.SetVideos(videos);

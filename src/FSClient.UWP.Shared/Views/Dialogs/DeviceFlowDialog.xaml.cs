@@ -39,7 +39,7 @@
         {
             tickTimer = new DispatcherTimer();
             tickTimer.Interval = TimeSpan.FromMilliseconds(100);
-            tickTimer.Tick += TickTimer_Tick;
+            tickTimer.Tick += TickTimer_Tick!;
 
             InitializeComponent();
         }

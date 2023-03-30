@@ -374,13 +374,13 @@
         }
 
         /// <inheridoc/>
-        public bool Equals(File other)
+        public bool Equals(File? other)
         {
             return Site == other?.Site && Id == other?.Id;
         }
 
         /// <inheridoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is File another && Equals(another);
         }

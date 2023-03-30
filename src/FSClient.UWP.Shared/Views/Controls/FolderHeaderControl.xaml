@@ -70,14 +70,14 @@
       <VisualStateGroup>
         <VisualState x:Name="SearchTextBoxVisibleState">
           <VisualState.StateTriggers>
-            <wintriggers:CompositeStateTrigger Operator="And">
+            <!--<wintriggers:CompositeStateTrigger Operator="And">
               <wintriggers:InverseTrigger>
                 <wintriggers:InverseTrigger.StateTrigger>
                   <wintriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
                 </wintriggers:InverseTrigger.StateTrigger>
-              </wintriggers:InverseTrigger>
+              </wintriggers:InverseTrigger>-->
               <StateTrigger IsActive="{x:Bind SearchTextBox.IsTextBoxVisible, Mode=OneWay}" />
-            </wintriggers:CompositeStateTrigger>
+            <!--</wintriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FolderPathTextBlock.Visibility" Value="Collapsed" />

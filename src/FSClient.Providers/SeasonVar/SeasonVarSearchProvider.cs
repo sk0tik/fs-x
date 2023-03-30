@@ -262,7 +262,7 @@
 
                     int? seasonNumber = null;
                     var titleParts = seasonTitle?.ToLower().Split(new[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
-                    var seasonIndex = Array.LastIndexOf(titleParts, "сезон") - 1;
+                    var seasonIndex = Array.LastIndexOf(titleParts!, "сезон") - 1;
                     if (seasonIndex > 0
                         && int.TryParse(titleParts?[seasonIndex], out var temp))
                     {
@@ -324,7 +324,7 @@
 
                     int? seasonNumber = null;
                     var titleParts = seasonTitle?.ToLower().Split(new[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
-                    var seasonIndex = Array.LastIndexOf(titleParts, "сезон") - 1;
+                    var seasonIndex = Array.LastIndexOf(titleParts!, "сезон") - 1;
                     if (seasonIndex > 0
                         && int.TryParse(titleParts?[seasonIndex], out var temp))
                     {
@@ -429,7 +429,7 @@
                         var year = yearFinder.Match(ruTitle ?? "").Groups["year"].Value.ToIntOrNull();
                         if (year.HasValue)
                         {
-                            ruTitle = yearFinder.Replace(ruTitle, "").Trim();
+                            ruTitle = yearFinder.Replace(ruTitle!, "").Trim();
                         }
 
                         return new ItemInfo(siteProvider.Site, id.ToString())

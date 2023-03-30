@@ -419,12 +419,12 @@
       <VisualStateGroup x:Name="FilesIsSelectionModeModeGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
+            <!--<winTriggers:CompositeStateTrigger Operator="And">
               <winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
                                               Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
-              <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
+              <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />-->
               <StateTrigger IsActive="{x:Bind FileViewModel.IsInSelectionMode, Mode=OneWay}" />
-            </winTriggers:CompositeStateTrigger>
+            <!--</winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FileIsAllSelectedButton.Visibility" Value="Visible" />
@@ -438,11 +438,11 @@
       <VisualStateGroup x:Name="FilesSelectionVisibility">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
+            <!--<winTriggers:CompositeStateTrigger Operator="And">
               <winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
                                               Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
               <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
-            </winTriggers:CompositeStateTrigger>
+            </winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FileSelectionModeToggle.Visibility" Value="Visible" />
@@ -450,8 +450,8 @@
         </VisualState>
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
-                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
+            <!--<winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
+                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FilesView.CommandBarVisibility" Value="Visible" />
@@ -486,7 +486,7 @@
       <VisualStateGroup x:Name="IsWatchedButtonEnabledGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:IsFalseStateTrigger Value="{x:Bind FileViewModel.IsAnySelected, Mode=OneWay}" />
+            <!--<winTriggers:IsFalseStateTrigger Value="{x:Bind FileViewModel.IsAnySelected, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FileIsWatchedSelectedButton.IsEnabled" Value="False" />
@@ -497,12 +497,12 @@
       <VisualStateGroup x:Name="CalendarButtonStateGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
+            <!--<winTriggers:CompositeStateTrigger Operator="And">
               <winTriggers:EqualsStateTrigger EqualTo="{x:Bind DescriptionPage}"
                                               Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
               <winTriggers:NotEqualStateTrigger Value="{x:Bind ItemViewModel.CurrentItemCalendar, Mode=OneWay}"
                                                 NotEqualTo="{x:Null}" />
-            </winTriggers:CompositeStateTrigger>
+            </winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="CalendarAppButton.Visibility" Value="Visible" />
@@ -526,7 +526,7 @@
       <VisualStateGroup x:Name="NoReviewsGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:IsFalseStateTrigger Value="{x:Bind Path=ReviewViewModel.HasAnyReview, Mode=OneWay, FallbackValue=True}" />
+            <!--<winTriggers:IsFalseStateTrigger Value="{x:Bind Path=ReviewViewModel.HasAnyReview, Mode=OneWay, FallbackValue=True}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="NoReviewsBlock.Visibility" Value="Visible" />
@@ -561,8 +561,8 @@
       <VisualStateGroup x:Name="PagesStateGroup">
         <VisualState x:Name="VideoPageStates">
           <VisualState.StateTriggers>
-            <winTriggers:EqualsStateTrigger EqualTo="{x:Bind VideoPage}"
-                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
+            <!--<winTriggers:EqualsStateTrigger EqualTo="{x:Bind VideoPage}"
+                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="DownloadButton.Visibility" Value="Visible" />
@@ -573,8 +573,8 @@
 
         <VisualState x:Name="FilesPageState">
           <VisualState.StateTriggers>
-            <winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
-                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
+            <!--<winTriggers:EqualsStateTrigger EqualTo="{x:Bind FilesPage}"
+                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="GoUpButton.Visibility" Value="Visible" />
@@ -584,11 +584,11 @@
 
         <VisualState x:Name="WideAndZeroPageState">
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
+            <!--<winTriggers:CompositeStateTrigger Operator="And">
               <winTriggers:EqualsStateTrigger EqualTo="{x:Bind DescriptionPage}"
                                               Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
               <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
-            </winTriggers:CompositeStateTrigger>
+            </winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="ShowCommandsButton.Visibility" Value="Visible" />
@@ -597,8 +597,8 @@
 
         <VisualState x:Name="MobileAndZeroPageState">
           <VisualState.StateTriggers>
-            <winTriggers:EqualsStateTrigger EqualTo="{x:Bind DescriptionPage}"
-                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />
+            <!--<winTriggers:EqualsStateTrigger EqualTo="{x:Bind DescriptionPage}"
+                                            Value="{x:Bind ItemPivot.SelectedItem, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="BottomCommandBar.Visibility" Value="Visible" />
@@ -609,8 +609,8 @@
       <VisualStateGroup x:Name="FirstPageStateGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:EqualsStateTrigger EqualTo="0"
-                                            Value="{x:Bind ItemPivot.SelectedIndex, Mode=OneWay}" />
+            <!--<winTriggers:EqualsStateTrigger EqualTo="0"
+                                            Value="{x:Bind ItemPivot.SelectedIndex, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="ShowFavButton.Visibility" Value="Visible" />

@@ -36,7 +36,7 @@
             return $"{Key}: {ItemInfo?.Title}";
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is FavoriteItem favoriteItem && Equals(favoriteItem);
         }

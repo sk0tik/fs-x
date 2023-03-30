@@ -268,7 +268,7 @@
                 {
                     var window = Window.Current
 #if WINUI3 && !UNO
-                        ?? new Window();
+                        //?? new Window();
 #endif
                         ?? throw new InvalidOperationException("Window cannot be created");
                     windowWeakRef = new WeakReference<Window>(window);

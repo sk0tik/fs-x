@@ -199,9 +199,9 @@
                 && response.Headers.Location is Uri location
                 && followRedirects)
             {
-                if (!location.IsAbsoluteUri)
+                if (!location.IsAbsoluteUri && request.RequestUri is not null)
                 {
-                    location = new Uri(request.RequestUri.GetLeftPart(UriPartial.Authority) + location);
+                    location = new Uri($"{request.RequestUri.GetLeftPart(UriPartial.Authority)}{location}");
                 }
                 if (request.RequestUri == location
                     && request.Method != HttpMethod.Get)

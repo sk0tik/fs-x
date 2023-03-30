@@ -105,14 +105,14 @@
                         .WithBody(body)
                         .SendAsync(ct)
                         .ConfigureAwait(false);
-                    if (response == null)
+                    if (response == null )
                     {
                         return default;
                     }
 
-                    if (response.IsSuccessStatusCode != true
+                    if (response.RequestMessage is not null && response.RequestMessage.RequestUri is not null && (response.IsSuccessStatusCode != true
                         || (currentPage > 1
-                            && !response.RequestMessage.RequestUri.ToString().Contains("page")))
+                            && !response.RequestMessage.RequestUri.ToString().Contains("page"))))
                     {
                         return default;
                     }

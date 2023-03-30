@@ -33,12 +33,17 @@
 
         public virtual bool PauseSupported => true;
 
-        public bool Equals(DownloadFile other)
+        public bool Equals(DownloadFile? other)
         {
-            return other.OperationId == OperationId;
+            if (other is not null)
+            {
+                return other.OperationId == OperationId;
+            }
+            else { return false; }
+            
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is DownloadFile file && Equals(file);
         }

@@ -117,7 +117,7 @@
             return Title ?? "Unknown";
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Quality quality && Equals(quality);
         }

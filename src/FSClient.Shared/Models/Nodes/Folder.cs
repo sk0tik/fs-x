@@ -35,10 +35,10 @@
             collectionChangedEvent = new ContextSafeEvent<NotifyCollectionChangedEventHandler>();
         }
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged
+        public event NotifyCollectionChangedEventHandler? CollectionChanged
         {
-            add => collectionChangedEvent.Register(value);
-            remove => collectionChangedEvent.Unregister(value);
+            add => collectionChangedEvent.Register(value!);
+            remove => collectionChangedEvent.Unregister(value!);
         }
 
         public FolderType FolderType { get; }
@@ -133,7 +133,7 @@
             };
         }
 
-        public bool Equals(Folder other)
+        public bool Equals(Folder? other)
         {
             if (string.IsNullOrEmpty(Id))
             {
@@ -143,7 +143,7 @@
             return Site == other?.Site && Id == other?.Id;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Folder another && Equals(another);
         }

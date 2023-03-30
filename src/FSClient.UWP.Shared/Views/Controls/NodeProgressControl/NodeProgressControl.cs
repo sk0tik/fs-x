@@ -34,12 +34,12 @@
             var nodeControl = (NodeProgressControl)d;
             if (e.OldValue is INotifyPropertyChanged oldNode)
             {
-                oldNode.PropertyChanged -= nodeControl.Node_PropertyChanged;
+                oldNode.PropertyChanged -= nodeControl.Node_PropertyChanged!;
             }
 
             if (e.NewValue is INotifyPropertyChanged newNode)
             {
-                newNode.PropertyChanged += nodeControl.Node_PropertyChanged;
+                newNode.PropertyChanged += nodeControl.Node_PropertyChanged!;
             }
 
             nodeControl.IsEnabled = e.NewValue != null;

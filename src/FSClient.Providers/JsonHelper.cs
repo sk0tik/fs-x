@@ -156,7 +156,7 @@
             {
                 return baseUri == null
                     ? token.ToObject<Uri>()
-                    : new Uri(baseUri, token.ToObject<Uri>());
+                    : new Uri(baseUri, token.ToObject<Uri>()!);
             }
 
             if (token.Type == JTokenType.String)

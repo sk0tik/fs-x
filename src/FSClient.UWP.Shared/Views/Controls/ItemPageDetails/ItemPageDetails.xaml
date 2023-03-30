@@ -234,8 +234,8 @@
               <VisualStateGroup x:Name="GridWidthStateGroup">
                 <VisualState>
                   <VisualState.StateTriggers>
-                    <winTriggers:ElementSizeStateTrigger MinWidth="640"
-                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />
+                    <!--<winTriggers:ElementSizeStateTrigger MinWidth="640"
+                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />-->
                   </VisualState.StateTriggers>
                   <VisualState.Setters>
                     <Setter Target="InfoPanel.Height" Value="Auto" />
@@ -248,8 +248,8 @@
                 </VisualState>
                 <VisualState>
                   <VisualState.StateTriggers>
-                    <winTriggers:ElementSizeStateTrigger MinWidth="420"
-                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />
+                    <!--<winTriggers:ElementSizeStateTrigger MinWidth="420"
+                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />-->
                   </VisualState.StateTriggers>
                   <VisualState.Setters>
                     <Setter Target="RatingContent.FontSize" Value="20" />
@@ -258,8 +258,8 @@
                 </VisualState>
                 <VisualState>
                   <VisualState.StateTriggers>
-                    <winTriggers:ElementSizeStateTrigger MinWidth="0"
-                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />
+                    <!--<winTriggers:ElementSizeStateTrigger MinWidth="0"
+                                                         Element="{Binding ElementName=InfoGrid, Mode=OneTime}" />-->
                   </VisualState.StateTriggers>
                   <VisualState.Setters>
                     <Setter Target="RatingContent.FontSize" Value="16" />

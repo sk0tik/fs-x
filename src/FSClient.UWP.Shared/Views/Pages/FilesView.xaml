@@ -727,15 +727,15 @@
       <VisualStateGroup x:Name="FilesLoadingProgressGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="Or">
+            <!--winTriggers:CompositeStateTrigger Operator="Or"-->
               <StateTrigger IsActive="{x:Bind FileViewModel.ShowProgress, Mode=OneWay}" />
-              <winTriggers:CompositeStateTrigger Operator="And">
-                <winTriggers:CompareStateTrigger Value="{x:Bind FileViewModel.CurrentFolder.Count, Mode=OneWay}"
+              <!--winTriggers:CompositeStateTrigger Operator="And"-->
+                <!--winTriggers:CompareStateTrigger Value="{x:Bind FileViewModel.CurrentFolder.Count, Mode=OneWay}"
                                                  Comparison="LessThan"
-                                                 CompareTo="1" />
+                                                 CompareTo="1" /-->
                 <StateTrigger IsActive="{x:Bind FileViewModel.CurrentFolder.IsLoading, Mode=OneWay}" />
-              </winTriggers:CompositeStateTrigger>
-            </winTriggers:CompositeStateTrigger>
+              <!--/winTriggers:CompositeStateTrigger-->
+            <!--/winTriggers:CompositeStateTrigger-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FilesGridView.Visibility" Value="Collapsed" />
@@ -745,12 +745,12 @@
         </VisualState>
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
-              <winTriggers:IsFalseStateTrigger Value="{x:Bind FileViewModel.ShowProgress, Mode=OneWay}" />
-              <winTriggers:CompareStateTrigger CompareTo="0"
+            <!--winTriggers:CompositeStateTrigger Operator="And"-->
+              <!--winTriggers:IsFalseStateTrigger Value="{x:Bind FileViewModel.ShowProgress, Mode=OneWay}" /-->
+              <!--winTriggers:CompareStateTrigger CompareTo="0"
                                                Comparison="Equal"
-                                               Value="{x:Bind FileViewModel.CurrentFolder.Count, Mode=OneWay, FallbackValue=0}" />
-            </winTriggers:CompositeStateTrigger>
+                                               Value="{x:Bind FileViewModel.CurrentFolder.Count, Mode=OneWay, FallbackValue=0}" /-->
+            <!--/winTriggers:CompositeStateTrigger-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="FilesGridView.Visibility" Value="Collapsed" />

@@ -283,8 +283,8 @@
                 {
                     ["id"] = itemId,
                     ["translator_id"] = translatorId,
-                    ["season"] = season.ToString(),
-                    ["episode"] = episode.ToString(),
+                    ["season"] = season.ToString()!,
+                    ["episode"] = episode.ToString()!,
                     ["action"] = episode.HasValue ? "get_stream" : "get_movie"
                 })
                 .WithAjax()

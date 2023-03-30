@@ -286,11 +286,11 @@
 
         <VisualState>
           <VisualState.StateTriggers>
-            <wintriggers:CompositeStateTrigger Operator="And">
+            <!--<wintriggers:CompositeStateTrigger Operator="And">
               <wintriggers:NotEqualStateTrigger Value="{x:Bind ViewModel.CurrentPage, Mode=OneWay}"
                                                 NotEqualTo="{x:Null}" />
               <wintriggers:IsFalseStateTrigger Value="{x:Bind ViewModel.CurrentPage.HasAnyItem, Mode=OneWay, FallbackValue=False}" />
-            </wintriggers:CompositeStateTrigger>
+            </wintriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="CurrentPageNoItemsBlock.Visibility" Value="Visible" />

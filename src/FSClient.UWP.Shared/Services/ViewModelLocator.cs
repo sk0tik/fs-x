@@ -169,7 +169,8 @@
             collection.AddSingleton<ISettingService>(settingService);
             collection.AddSingleton(Settings.Instance);
 
-            var ver = Package.Current.Id.Version;
+            // HACK: ?
+            //var ver = Package.Current.Id.Version;
 
             Settings.Instance
                 .SetDefault(nameof(Settings.PauseOnBackgroundMedia),
@@ -289,7 +290,7 @@
                 factory.AddProvider(new NotificationLogger.Provider(
                     new Lazy<INotificationService>(provider.GetRequiredService<INotificationService>)));
 
-                factory.AddProvider(new AppCenterLogger.Provider());
+                //factory.AddProvider(new AppCenterLogger.Provider());
 
                 factory.AddProvider(new FileLogger.Provider(
                     new Lazy<IAppInformation>(provider.GetRequiredService<IAppInformation>),
@@ -302,7 +303,9 @@
 
                 factory.AddProvider(new CriticalDialogLogger.Provider());
 
-                return factory.CreateLogger(Package.Current.DisplayName);
+                // HACK: ?UWP
+                //return factory.CreateLogger(Package.Current.DisplayName);
+                return factory.CreateLogger(System.AppDomain.CurrentDomain.FriendlyName); 
             });
         }
 

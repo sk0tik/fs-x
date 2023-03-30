@@ -779,7 +779,7 @@
                 groupedFilesSource.Clear();
                 if (oldValue != null)
                 {
-                    oldValue.CollectionChanged -= OnFolderChildrenChanged;
+                    oldValue.CollectionChanged -= OnFolderChildrenChanged!;
                 }
 
                 if (value == null)
@@ -793,7 +793,7 @@
 
                     FillFilesSource(value.ToArray());
 
-                    value.CollectionChanged += OnFolderChildrenChanged;
+                    value.CollectionChanged += OnFolderChildrenChanged!;
 
                     var child = await historyManager.GetLastViewedFolderChildAsync<ITreeNode>(value, HistoryItem).ConfigureAwait(false);
                     if (child != null)
@@ -813,7 +813,7 @@
         {
             if (args.Action == NotifyCollectionChangedAction.Add)
             {
-                var newItems = args.NewItems.OfType<ITreeNode>();
+                var newItems = args.NewItems!.OfType<ITreeNode>();
                 FillFilesSource(newItems.ToArray());
             }
         }

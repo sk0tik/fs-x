@@ -34,10 +34,10 @@
         public List<TElement> Values { get; set; }
         object IIncrementalGrouping<TElement>.Key => Key!;
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged
+        public event NotifyCollectionChangedEventHandler? CollectionChanged
         {
-            add => collectionChangedEvent.Register(value);
-            remove => collectionChangedEvent.Unregister(value);
+            add => collectionChangedEvent.Register(value!);
+            remove => collectionChangedEvent.Unregister(value!);
         }
 
         public void Concat(IEnumerable<TElement> other)

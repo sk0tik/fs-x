@@ -298,7 +298,7 @@
 
             if (json["recommendations"] is JObject recommendations)
             {
-                itemInfo.Details.Similar = (await recommendations["results"]
+                itemInfo.Details.Similar = (await recommendations["results"]!
                     .OfType<JObject>()
                     .ToAsyncEnumerable()
                     .SelectAwaitWithCancellation(CreateItemInfoFromJsonAsync)
@@ -349,7 +349,7 @@
                 return null;
             }
 
-            var container = json[collectionNameField]
+            var container = json[collectionNameField]!
                 .Where(j => j[itemFieldName]?.Type == JTokenType.String)
                 .Select(j => TMDbSiteProvider.SupportedTagsForSearch.Contains(collectionNameField) && j["id"]?.ToString() is string value
                     ? new TitledTag(j[itemFieldName]!.ToString(), TMDbSiteProvider.SiteKey, collectionNameField, value)

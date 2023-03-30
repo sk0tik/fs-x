@@ -1,4 +1,4 @@
-﻿#if !NET5_0 && !NETSTANDARD2_1
+﻿#if !NET6_0 && !NETSTANDARD2_1
 namespace System.Diagnostics.CodeAnalysis
 {
     using System;

@@ -35,8 +35,8 @@
             if (progressSlider != null)
             {
                 progressSlider.SliderToolTipPopupAnchor = this;
-                progressSlider.SeekRequested += ProgressSlider_SeekRequested;
-                progressSlider.PositionChangeRequested += ProgressSlider_PositionChangeRequested;
+                progressSlider.SeekRequested += ProgressSlider_SeekRequested!;
+                progressSlider.PositionChangeRequested += ProgressSlider_PositionChangeRequested!;
             }
 
             bufferingProgressBar = GetTemplateChild("BufferingProgress") as ProgressBar;

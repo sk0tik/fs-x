@@ -2,7 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-#if NET5_0 || NETSTANDARD2_1
+#if NET6_0 || NETSTANDARD2_1
 [assembly: System.Runtime.CompilerServices.TypeForwardedTo(typeof(System.Index))]
 #else
 namespace System
@@ -21,7 +21,9 @@ namespace System
 #pragma warning disable CA1815 // Override equals and operator equals on value types
 #pragma warning disable CA2231 // Overload operator equals on overriding value type Equals
     [DebuggerNonUserCode]
+#pragma warning disable CS0436 // Тип конфликтует с импортированным типом
     public readonly struct Index : IEquatable<Index>
+#pragma warning restore CS0436 // Тип конфликтует с импортированным типом
 #pragma warning restore CA2231 // Overload operator equals on overriding value type Equals
 #pragma warning restore CA1815 // Override equals and operator equals on value types
     {
@@ -133,14 +135,14 @@ namespace System
 
         /// <summary>Indicates whether the current Index object is equal to another object of the same type.</summary>
         /// <param name="value">An object to compare with this object</param>
-        public override bool Equals(object value)
+        public override bool Equals(object? value)
         {
             return value is Index index && _value == index._value;
         }
 
         /// <summary>Indicates whether the current Index object is equal to another Index object.</summary>
         /// <param name="other">An object to compare with this object</param>
-        public bool Equals(Index other)
+        public bool Equals(Index? other)
         {
             return _value == other._value;
         }

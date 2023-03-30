@@ -7,13 +7,31 @@
     using System.Runtime.CompilerServices;
 
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Debug;
+
+    //using Microsoft.Extensions.Logging.Deb;
+
 
     public static class Logger
     {
         private static ILogger? instance;
         public static ILogger Instance
         {
-            get => instance ?? throw new InvalidOperationException("Logger Instance was not setted");
+            get
+            {
+                if (instance is null)
+                {
+                    ILoggerFactory loggerFactory = new LoggerFactory(
+                            new[] { new DebugLoggerProvider() }
+                        );
+                    //or
+                    //ILoggerFactory loggerFactory = new LoggerFactory().AddConsole();
+
+                    instance = loggerFactory.CreateLogger("FAIL");
+                }
+                return instance ?? throw new InvalidOperationException("Logger Instance was not setted");
+            }
+
             set => instance = value;
         }
 

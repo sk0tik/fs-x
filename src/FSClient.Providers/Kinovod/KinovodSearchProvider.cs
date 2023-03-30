@@ -106,14 +106,14 @@
                 ))
                 .Where(item => item.url != null)
                 .Select(item => (
-                    section: item.entries.FirstOrDefault() switch
+                    section: item.entries!.FirstOrDefault() switch
                     {
                         "serial" => Section.CreateDefault(SectionModifiers.Serial),
                         "film" => Section.CreateDefault(SectionModifiers.Film),
                         "tv_show" => Section.CreateDefault(SectionModifiers.TVShow),
                         _ => Section.Any
                     },
-                    id: item.entries.LastOrDefault()?.Split('-').FirstOrDefault().ToIntOrNull(),
+                    id: item.entries!.LastOrDefault()?.Split('-').FirstOrDefault().ToIntOrNull(),
                     url: item.url,
                     value: item.value,
                     year: item.year

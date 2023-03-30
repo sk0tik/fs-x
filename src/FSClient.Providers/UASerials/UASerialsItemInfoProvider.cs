@@ -35,12 +35,12 @@
             var domain = await siteProvider.GetMirrorAsync(cancellationToken).ConfigureAwait(false);
             var id = link?.GetPath().SplitLazy(2, StringSplitOptions.RemoveEmptyEntries, new[] { '/', '-' }).FirstOrDefault()?.ToIntOrNull();
             if (!id.HasValue
-                || !Uri.TryCreate(domain, link, out link))
+                || !Uri.TryCreate(domain, link, out link!))
             {
                 return null;
             }
 
-            var itemInfo = new UASerialsItemInfo(Site, id.ToString())
+            var itemInfo = new UASerialsItemInfo(Site, id.ToString()!)
             {
                 Link = link,
                 Section = Section.CreateDefault(SectionModifiers.Serial)

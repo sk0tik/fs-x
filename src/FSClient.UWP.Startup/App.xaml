@@ -6,7 +6,8 @@
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" ControlsResourcesVersion="Version1" />
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
+        <!--XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" ControlsResourcesVersion="Version1" /-->
         <ResourceDictionary Source="ms-appx:///FSClient.UWP.Shared/Views/Themes/Consts.xaml" />
         <Brushes xmlns="using:FSClient.UWP.Shared.Views.Themes" />
         <Styles xmlns="using:FSClient.UWP.Shared.Views.Themes" />

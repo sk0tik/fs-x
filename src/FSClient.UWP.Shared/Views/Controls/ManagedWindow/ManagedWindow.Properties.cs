@@ -13,10 +13,12 @@
 
     public partial class ManagedWindow
     {
-        public static readonly bool OverlaySupported =
-            ApiInformation.IsMethodPresent(typeof(ApplicationView).FullName,
-                nameof(ApplicationView.IsViewModeSupported))
-            && ApplicationView.GetForCurrentView().IsViewModeSupported(ApplicationViewMode.CompactOverlay);
+        // HACK: UWP Settings? (
+        //public static readonly bool OverlaySupported =
+        //    ApiInformation.IsMethodPresent(typeof(ApplicationView).FullName,
+        //        nameof(ApplicationView.IsViewModeSupported))
+        //    && ApplicationView.GetForCurrentView().IsViewModeSupported(ApplicationViewMode.CompactOverlay);
+        public static readonly bool OverlaySupported = false;
 
         public static CoreDispatcher? CurrentWindowDispather
             => CoreApplication.GetCurrentView()?.CoreWindow.Dispatcher;

@@ -36,7 +36,7 @@
     }
 
     public class UWPIncrementalLoadingCollection<TSource, TElement>
-        : IncrementalLoadingCollection<TSource, TElement>, ISupportIncrementalLoading
+        : IncrementalLoadingCollection<TSource, TElement>//, ISupportIncrementalLoading
     {
         public UWPIncrementalLoadingCollection(
             IAsyncEnumerable<TElement> source)

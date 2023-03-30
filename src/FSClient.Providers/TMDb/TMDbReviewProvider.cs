@@ -63,7 +63,7 @@
                     yield break;
                 }
 
-                var reviews = json["results"]
+                var reviews = json["results"]!
                     .Where(i => i["id"] != null)
                     .Select(i => new Review(
                         Site, i["id"]!.ToString(),

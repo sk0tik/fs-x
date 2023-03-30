@@ -85,7 +85,7 @@
             var file = new File(Site, "z" + id)
             {
                 Title = title,
-                FrameLink = new Uri(domain, itemLink)
+                FrameLink = new Uri(domain, itemLink!)
             };
             file.SetVideosFactory((_, cancellationToken) => GetVideosAsync(id, cancellationToken));
             return new[] { file };

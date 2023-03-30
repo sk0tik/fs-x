@@ -51,7 +51,7 @@
             if (results.TryGetValue("torrent", out var torrentResult)
                 && torrentResult.IFrame?.ToUriOrNull() is Uri iframeLink)
             {
-                var referer = new Uri(siteProvider.Properties[YohohoSiteProvider.YohohoRefererKey], UriKind.Absolute);
+                var referer = new Uri(siteProvider.Properties[YohohoSiteProvider.YohohoRefererKey]!, UriKind.Absolute);
 
                 var html = await siteProvider.HttpClient
                     .PostBuilder(iframeLink)
@@ -134,7 +134,7 @@
             var torrentTitle = torrent.Title!;
 
             if (startYear.HasValue
-                && !torrentTitle.Contains(startYear.ToString()))
+                && !torrentTitle.Contains(startYear.ToString()!))
             {
                 if (sectionModifiers.HasFlag(SectionModifiers.Serial)
                     || sectionModifiers.HasFlag(SectionModifiers.TVShow))

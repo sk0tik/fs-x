@@ -43,7 +43,7 @@
 
             hideTimer = new DispatcherTimer();
             hideTimer.Interval = TimeSpan.FromMilliseconds(500);
-            hideTimer.Tick += HideNotification;
+            hideTimer.Tick += HideNotification!;
         }
 
         public bool IsXbox => UWPAppInformation.Instance.DeviceFamily == DeviceFamily.Xbox &&

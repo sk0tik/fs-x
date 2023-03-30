@@ -38,7 +38,7 @@
             }
 #endif
 
-            AppCenterLogger.StartIfAllowed();
+            //AppCenterLogger.StartIfAllowed();
         }
 
         private static bool InvokeLoggerHandler(Exception? ex, string msg)

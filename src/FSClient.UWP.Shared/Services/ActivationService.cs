@@ -9,16 +9,18 @@
 
     using Windows.ApplicationModel.Activation;
     using Windows.Foundation.Metadata;
-    using Windows.UI.Core.Preview;
-    using Windows.UI.Popups;
 #if WINUI3
     using Microsoft.UI.Xaml;
     using Microsoft.UI.Xaml.Media;
     using Microsoft.UI.Xaml.Controls;
+//    using Microsoft.UI
 #else
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Media;
     using Windows.UI.Xaml.Controls;
+    using Windows.UI.Core.Preview;
+    using Windows.UI.Popups;
+
 #endif
 
     using FSClient.Localization.Resources;
@@ -44,13 +46,14 @@
 
         public ActivationService()
         {
-            UWPLoggerHelper.InitGlobalHandlers();
+            //UWPLoggerHelper.InitGlobalHandlers();
 
             locator = ViewModelLocator.Current;
 
             if (UWPAppInformation.Instance.DeviceFamily == DeviceFamily.Xbox)
             {
-                UWPAppInformation.Instance.IsXYModeEnabled = Settings.Instance.XYMouseMode;
+                // HACK: DROP XBOX :(
+                //UWPAppInformation.Instance.IsXYModeEnabled = Settings.Instance.XYMouseMode;
             }
 
             ApplyLanguageOnStart();
@@ -122,7 +125,8 @@
                 var (success, message) = await locator.Resolve<IVerificationService>().RequestVerificationAsync();
                 if (!success)
                 {
-                    var messageDialog = new MessageDialog(Strings.Activation_NoAccessError, message);
+                    var messageDialog = new Windows.UI.Popups.MessageDialog(Strings.Activation_NoAccessError, message);
+                    WinRT.Interop.InitializeWithWindow.Initialize(messageDialog, WinRT.Interop.WindowNative.GetWindowHandle(this));
                     await messageDialog.ShowAsync();
                     Application.Current.Exit();
                 }
@@ -232,19 +236,22 @@
                             () => locator.Resolve<BackgroundTaskService>().UpdateTaskRegistration()))
                     .ConfigureAwait(true);
 
-                try
+                // HACK: UWP ADD BACK BUTTON!
+ /*               try
                 {
-                    if (ApiInformation.IsMethodPresent(typeof(SystemNavigationManagerPreview).FullName,
+                /    if (ApiInformation.IsMethodPresent(typeof(SystemNavigationManagerPreview).FullName,
                         nameof(SystemNavigationManagerPreview.GetForCurrentView)))
                     {
-                        SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
-                            ActivationService_CloseRequested;
+                        if (SystemNavigationManagerPreview.GetForCurrentView() is not null) { 
+                            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
+                                ActivationService_CloseRequested;
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     Logger.Instance.LogWarning(ex);
-                }
+                }*/
 
                 locator.Resolve<IHistoryManager>().ItemsHistoryChanged += async (s, a) =>
                 {
@@ -382,18 +389,19 @@
             return args is IActivatedEventArgs && !(args is ShareTargetActivatedEventArgs);
         }
 
-        private async void ActivationService_CloseRequested(object? sender,
-            SystemNavigationCloseRequestedPreviewEventArgs e)
-        {
-            var deferral = e.GetDeferral();
-            try
-            {
-                await DeactivateAsync(appSuspending: false).ConfigureAwait(true);
-            }
-            finally
-            {
-                deferral.Complete();
-            }
-        }
+        // HACK: UWP Add back button! https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/case-study-1#restoring-back-button-functionality
+        //private async void ActivationService_CloseRequested(object? sender,
+        //    SystemNavigationCloseRequestedPreviewEventArgs e)
+        //{
+        //    var deferral = e.GetDeferral();
+        //    try
+        //    {
+        //        await DeactivateAsync(appSuspending: false).ConfigureAwait(true);
+        //    }
+        //    finally
+        //    {
+        //        deferral.Complete();
+        //    }
+        //}
     }
 }

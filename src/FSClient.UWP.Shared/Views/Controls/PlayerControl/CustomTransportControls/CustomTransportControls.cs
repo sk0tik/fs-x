@@ -509,7 +509,7 @@
 
             bool CanHandleEvent(out PlayerControl playerControl)
             {
-                return playerControlReference.TryGetTarget(out playerControl)
+                return playerControlReference.TryGetTarget(out playerControl!)
                        && lastPlayingVideo != null
                        && lastPlayingVideo == playerControl.PlayingVideo;
             }
@@ -800,7 +800,7 @@
                 return;
             }
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse
+            if (e.Pointer.PointerDeviceType == Microsoft.UI.Input.PointerDeviceType.Mouse
                 && e.GetCurrentPoint(this).Properties.IsMiddleButtonPressed)
             {
                 if (ManagedWindow.GetCurrent(Window.Current) is ManagedWindow managedWindow

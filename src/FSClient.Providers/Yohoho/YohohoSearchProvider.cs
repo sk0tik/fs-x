@@ -104,7 +104,7 @@
             }
 
             var domain = await siteProvider.GetMirrorAsync(cancellationToken).ConfigureAwait(false);
-            var referer = new Uri(siteProvider.Properties[YohohoSiteProvider.YohohoRefererKey], UriKind.Absolute);
+            var referer = new Uri(siteProvider.Properties[YohohoSiteProvider.YohohoRefererKey]!, UriKind.Absolute);
 
             var body = new Dictionary<string, string>
             {
@@ -123,7 +123,7 @@
             }
             if (kpId.HasValue)
             {
-                body.Add("kinopoisk", kpId.ToString());
+                body.Add("kinopoisk", kpId.ToString()!);
             }
 
             var response = await builder

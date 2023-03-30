@@ -86,7 +86,7 @@
 
             try
             {
-                return response.Content.ReadAsStreamAsync();
+                return response.Content.ReadAsStreamAsync()!;
             }
             catch (Exception ex)
             {

@@ -36,7 +36,7 @@
             this.logger = logger;
 
             providers = authProviders
-                .Select(authProvider => (authProvider, siteProvider: siteProviders.FirstOrDefault(siteProvider => siteProvider.Site == authProvider.Site)))
+                .Select(authProvider => (authProvider, siteProvider: siteProviders.FirstOrDefault(siteProvider => siteProvider.Site == authProvider.Site)!))
                 .Where(tuple => tuple.siteProvider != null)
                 .ToDictionary(tuple => tuple.siteProvider.Site, tuple => (tuple.authProvider, tuple.siteProvider, new SemaphoreSlim(1)));
         }

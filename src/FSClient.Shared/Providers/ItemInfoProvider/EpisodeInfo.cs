@@ -18,14 +18,14 @@
 
         public bool IsNotAired => DateTime > DateTimeOffset.Now;
 
-        public bool Equals(EpisodeInfo other)
+        public bool Equals(EpisodeInfo? other)
         {
             return other != null
                 && Season == other.Season
                 && Episode == other.Episode;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is EpisodeInfo ep && Equals(ep);
         }

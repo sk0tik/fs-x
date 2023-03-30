@@ -73,7 +73,7 @@
 
                 BackgroundImage.Source = null;
 
-                ViewModelLocator.Current.NavigationService.GoBackRequested += OnBackRequested;
+                ViewModelLocator.Current.NavigationService.GoBackRequested += OnBackRequested!;
 
                 await HidePlayerControlAsync().ConfigureAwait(true);
 
@@ -226,7 +226,7 @@
                 ItemPivot.SelectedItem = DescriptionPage;
             }
 
-            ViewModelLocator.Current.NavigationService.GoBackRequested -= OnBackRequested;
+            ViewModelLocator.Current.NavigationService.GoBackRequested -= OnBackRequested!;
 
             await HidePlayerControlAsync().ConfigureAwait(true);
 

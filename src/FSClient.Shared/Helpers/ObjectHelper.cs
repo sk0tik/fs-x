@@ -84,7 +84,7 @@
                 throw new InvalidOperationException($"Cannot read {resourceName} resource file.");
             }
 
-            using var stream = assembly.GetManifestResourceStream(fullResourceName);
+            using var stream = assembly.GetManifestResourceStream(fullResourceName)!;
             using var streamReader = new StreamReader(stream);
             return streamReader.ReadToEnd();
         }

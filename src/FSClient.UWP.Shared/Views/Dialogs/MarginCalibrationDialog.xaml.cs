@@ -47,11 +47,11 @@
                         Settings.ApplicationMarginBottom)
                 };
                 rootGrid.Children.Add(border);
-                Settings.PropertyChanged += Settings_PropertyChanged;
+                Settings.PropertyChanged += Settings_PropertyChanged!;
 
                 await this.ShowAsync(cancellationToken).ConfigureAwait(true);
 
-                Settings.PropertyChanged -= Settings_PropertyChanged;
+                Settings.PropertyChanged -= Settings_PropertyChanged!;
                 rootGrid.Children.Remove(border);
 
                 void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

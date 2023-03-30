@@ -772,8 +772,8 @@
       <VisualStateGroup>
         <VisualState>
           <VisualState.StateTriggers>
-            <windowsstatetriggers:EqualsStateTrigger EqualTo="Both"
-                                                     Value="{x:Bind MasterDetailsView.ViewState, Mode=OneWay}" />
+            <!--<windowsstatetriggers:EqualsStateTrigger EqualTo="Both"
+                                                     Value="{x:Bind MasterDetailsView.ViewState, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="MasterDetailsView.Background" Value="{ThemeResource ClientBackgroundBrush}" />

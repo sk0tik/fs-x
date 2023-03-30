@@ -86,7 +86,7 @@
                                     ["s"] = season.Key.ToString(),
                                     ["t"] = translateId
                                 });
-                                var episodeLink = new Uri(i.Link, "?" + query);
+                                var episodeLink = new Uri(i.Link!, "?" + query);
                                 var episodeFile = new File(Site, $"{seasonFolder.Id}_{episode}")
                                 {
                                     Episode = episode.ToRange(),

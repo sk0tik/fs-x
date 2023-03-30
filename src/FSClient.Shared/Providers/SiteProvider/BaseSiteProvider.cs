@@ -57,7 +57,7 @@
             }
             Mirrors = mirrors
                 .Select(l => l.Scheme == EncodedPrefixScheme
-                    ? new Uri(ProcessPropertyValue(l.OriginalString))
+                    ? new Uri(ProcessPropertyValue(l.OriginalString)!)
                     : l)
                 .ToList();
 

@@ -68,7 +68,7 @@
             var nodes = await requests
                 .ToAsyncEnumerable()
                 .SelectAwaitWithCancellation((request, ct) => new ValueTask<IHtmlDocument?>(siteProvider.HttpClient
-                    .GetBuilder(request)
+                    .GetBuilder(request!)
                     .SendAsync(ct)
                     .AsHtml(ct)))
                 .Where(page => page != null)
@@ -150,7 +150,7 @@
             var torrentTitle = torrent.Title!;
 
             if (startYear.HasValue
-                && !torrentTitle.Contains(startYear.ToString()))
+                && !torrentTitle.Contains(startYear.ToString()!))
             {
                 if (sectionModifiers.HasFlag(SectionModifiers.Serial)
                     || sectionModifiers.HasFlag(SectionModifiers.TVShow))

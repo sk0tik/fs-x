@@ -296,7 +296,7 @@
                                             .Where(tuple => tuple.success)
                                             .Select(tuple => new SubtitleTrack(
                                                 LocalizationHelper.DetectLanguageNames(tuple.title).FirstOrDefault() ?? defaultSubLanguage,
-                                                tuple.subLink)
+                                                tuple.subLink!)
                                             {
                                                 Title = tuple.title
                                             })

@@ -128,7 +128,7 @@
                         file.SetVideos(videos);
                         return new[]
                         {
-                            (tuple.translateId, tuple.translate, season: 0, file)
+                            (tuple.translateId, tuple.translate!, season: 0, file)
                         };
                     }
                     else if (value.Type == JTokenType.Array)

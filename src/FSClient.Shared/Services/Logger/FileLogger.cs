@@ -174,10 +174,15 @@
                     var props = exception.GetFullProperties(appInformation, true).ToDictionary(k => k.Key, v => (object?)v.Value);
                     if (props.TryGetValue(nameof(exception.StackTrace), out var stackTraceObj))
                     {
-                        props[nameof(exception.StackTrace)] = stackTraceObj?
-                            .ToString()
-                            .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
-                            .Select(line => line.Trim());
+                        if (stackTraceObj is not null)
+                        {
+#pragma warning disable CS8602 // Разыменование вероятной пустой ссылки.
+                            props[nameof(exception.StackTrace)] = stackTraceObj?
+                                .ToString()
+                                .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(line => line.Trim());
+#pragma warning restore CS8602 // Разыменование вероятной пустой ссылки.
+                        }
                     }
                     Exception = props;
                 }

@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-	  <TargetFrameworks Condition="'$(VisualStudioVersion)' != '15.0'">$(TargetFrameworks);netstandard2.1</TargetFrameworks>
+	  <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
+	  <!--TargetFrameworks Condition="'$(VisualStudioVersion)' != '15.0'">$(TargetFrameworks);netstandard2.1</TargetFrameworks-->
 	  <GenerateLibraryLayout>true</GenerateLibraryLayout>
+	  <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
     <PackageReference Include="AngleSharp" Version="0.16.1" />
     <PackageReference Include="CloudflareSolverRe" Version="1.0.6" />
     <PackageReference Include="Humanizer" Version="2.8.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="murmurhash" Version="1.0.3" />
     <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
     <PackageReference Include="Nito.AsyncEx.Oop" Version="5.1.2" />

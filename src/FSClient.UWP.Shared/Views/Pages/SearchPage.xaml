@@ -140,8 +140,8 @@
       <VisualStateGroup x:Name="PivotHeaderVisibility">
         <VisualState>
           <VisualState.StateTriggers>
-            <wintriggers:EqualsStateTrigger Value="{x:Bind ViewModel.ResultPages.Count, Mode=OneWay}"
-                                            EqualTo="1" />
+            <!--<wintriggers:EqualsStateTrigger Value="{x:Bind ViewModel.ResultPages.Count, Mode=OneWay}"
+                                            EqualTo="1" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="SearchPivot.(extensions:PivotExtension.HeaderVisibility)" Value="Collapsed" />

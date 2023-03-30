@@ -81,7 +81,7 @@
 
             var titlesToProx = original.GetTitles().ToList();
 
-            var copyDict = original.Details.LinkedIds.ToList();
+            var copyDict = original.Details.LinkedIds!.ToList();
             if (copyDict.OrderByDescending(p => p.Key == Sites.IMDb)
                     .FirstOrDefault(p => p.Key == Sites.IMDb || p.Key == Sites.Twitter) is { } pair
                 && pair.Value != null
@@ -222,7 +222,7 @@
                     var currentPage = json["page"]?.ToIntOrNull() ?? index + 1;
                     return currentPage <= maxPages;
                 })
-                .SelectAwaitWithCancellation((json, ct) => json!["results"]
+                .SelectAwaitWithCancellation((json, ct) => json!["results"]!
                     .OfType<JObject>()
                     .Where(j => section != Section.Any || "tv,movie".Contains(j["media_type"]?.ToString() ?? ""))
                     .ToAsyncEnumerable()

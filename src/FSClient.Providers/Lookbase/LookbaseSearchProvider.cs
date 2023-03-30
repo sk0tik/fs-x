@@ -93,7 +93,7 @@
             var apiLink = siteProvider.Properties[LookbaseSiteProvider.LookbaseApiDomainKey].ToUriOrNull(domain);
 
             var result = await siteProvider.HttpClient
-                .GetBuilder(new Uri(apiLink, "/api/"))
+                .GetBuilder(new Uri(apiLink!, "/api/"))
                 .WithArgument("id_kp", kpIdFilter?.ToString())
                 .WithArgument("id_imdb", imdbIdFilter?.ToString())
                 .WithArgument("token", Secrets.LookbaseApiKey)

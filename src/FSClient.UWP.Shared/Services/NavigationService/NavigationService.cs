@@ -283,7 +283,7 @@
 
         private async void RootFrame_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == Microsoft.UI.Input.PointerDeviceType.Mouse)
             {
                 var properties = e.GetCurrentPoint(RootFrame).Properties;
                 if (properties.IsXButton1Pressed)

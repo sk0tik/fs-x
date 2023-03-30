@@ -161,7 +161,7 @@ namespace FSClient.UWP.Shared.Views.Controls
         {
             if (DesignMode.DesignModeEnabled == false)
             {
-                ViewModelLocator.Current.NavigationService.GoBackRequested += OnBackRequested;
+                ViewModelLocator.Current.NavigationService.GoBackRequested += OnBackRequested!;
                 var frame = GetFrame();
                 if (frame != null)
                 {
@@ -189,7 +189,7 @@ namespace FSClient.UWP.Shared.Views.Controls
         {
             if (DesignMode.DesignModeEnabled == false)
             {
-                ViewModelLocator.Current.NavigationService.GoBackRequested -= OnBackRequested;
+                ViewModelLocator.Current.NavigationService.GoBackRequested -= OnBackRequested!;
                 var frame = GetFrame();
                 if (frame != null)
                 {

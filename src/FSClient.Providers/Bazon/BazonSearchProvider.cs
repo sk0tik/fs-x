@@ -220,7 +220,7 @@
 
             if (distinctById)
             {
-                items = items.DistinctBy(i => i.SiteId);
+                //items = items.DistinctBy(i => i.SiteId);
             }
             if (takeSingleId
                 && items.FirstOrDefault()?.SiteId is string siteId)

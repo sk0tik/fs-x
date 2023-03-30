@@ -184,7 +184,7 @@
                     if (container.FindVisualChild("RootGrid") is Grid root
                         && ContextMenuExtension.GetContextFlyout(root) is FavMenuFlyout flyout)
                     {
-                        flyout.Opening += Flyout_Opening;
+                        flyout.Opening += Flyout_Opening!;
                     }
                 }
             }

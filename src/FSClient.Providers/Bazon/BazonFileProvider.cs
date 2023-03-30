@@ -100,7 +100,7 @@
                 {
                     Title = bazonItemInfo?.Translation ?? i.Title,
                     ItemTitle = i.Title,
-                    FrameLink = new Uri(domain, i.Link)
+                    FrameLink = new Uri(domain, i.Link!)
                 };
                 file.SetVideosFactory((f, ct) => LoadVideosAsync(f, id, ct));
 
@@ -122,7 +122,7 @@
                             Episode = episode.episode.ToRange(),
                             Season = season.Key,
                             ItemTitle = i.Title,
-                            FrameLink = new Uri(domain, i.Link)
+                            FrameLink = new Uri(domain, i.Link!)
                         };
                         episodeFile.SetVideosFactory((f, ct) => LoadVideosAsync(f, i.SiteId + i.Translation, ct));
 
@@ -373,7 +373,7 @@
             }
 
             mitmScriptCache = await siteProvider.HttpClient
-                .GetBuilder(new Uri(mitmScriptLink))
+                .GetBuilder(new Uri(mitmScriptLink!))
                 .SendAsync(default)
                 .AsText()
                 .ConfigureAwait(false);

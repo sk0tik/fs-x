@@ -73,7 +73,7 @@
         public async Task<Folder?> GetTrailersRootAsync(ItemInfo itemInfo, CancellationToken cancellationToken)
         {
             var domain = await siteProvider.GetMirrorAsync(cancellationToken).ConfigureAwait(false);
-            var pageLink = new Uri(domain, itemInfo.Link);
+            var pageLink = new Uri(domain, itemInfo.Link!);
 
             var pageText = await siteProvider
                 .HttpClient
@@ -126,7 +126,7 @@
                 return Enumerable.Empty<ITreeNode>();
             }
 
-            var translation = Regex.Match(pageText, @"<li><b>Перевод:<\/b>(?<translation>[^<]+)<\/li>").Groups["translation"].Value.NotEmptyOrNull();
+            var translation = Regex.Match(pageText!, @"<li><b>Перевод:<\/b>(?<translation>[^<]+)<\/li>").Groups["translation"].Value.NotEmptyOrNull();
 
             var itemInfoText = await siteProvider
                 .HttpClient

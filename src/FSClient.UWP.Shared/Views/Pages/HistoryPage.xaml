@@ -220,7 +220,7 @@
       <VisualStateGroup x:Name="CommandBarVisibilityGroup">
         <VisualState x:Name="ShowTopBarWithHeaderState">
           <VisualState.StateTriggers>
-            <triggers:CompositeStateTrigger Operator="Or">
+            <!--<triggers:CompositeStateTrigger Operator="Or">
               <triggers:CompositeStateTrigger Operator="And">
                 <triggers:AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowWidth}" />
                 <StateTrigger IsActive="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
@@ -229,7 +229,7 @@
                 <triggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
                 <triggers:IsFalseStateTrigger Value="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
               </triggers:CompositeStateTrigger>
-            </triggers:CompositeStateTrigger>
+            </triggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="TopBar.Visibility" Value="Visible" />
@@ -306,10 +306,10 @@
       <VisualStateGroup x:Name="SelectionVisibilityGroup">
         <VisualState x:Name="SelectionWideState">
           <VisualState.StateTriggers>
-            <triggers:CompositeStateTrigger Operator="And">
+            <!--<triggers:CompositeStateTrigger Operator="And">-->
               <StateTrigger IsActive="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
-              <triggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
-            </triggers:CompositeStateTrigger>
+              <!--<triggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />-->
+            <!--</triggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="DeleteButton.Visibility" Value="Visible" />

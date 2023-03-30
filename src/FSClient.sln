@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.Shared", "FSClient.Shared\FSClient.Shared.csproj", "{217A1155-013C-41BD-9C50-1A6C8980D1E2}"
 EndProject
@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.Data", "FSClient.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.Localization", "FSClient.Localization\FSClient.Localization.csproj", "{2FBAA550-5A38-449B-838E-0AD7E76DDEA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSClient.UWP.Background", "FSClient.UWP.Background\FSClient.UWP.Background.csproj", "{8C8B13FE-185F-41B8-9697-0FCCE561BB43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.UWP.Background", "FSClient.UWP.Background\FSClient.UWP.Background.csproj", "{8C8B13FE-185F-41B8-9697-0FCCE561BB43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2D7CE7E5-0F58-4708-9025-5BBEE4444194}"
 EndProject
@@ -46,7 +46,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.ViewModels", "FSClient.ViewModels\FSClient.ViewModels.csproj", "{358D2441-4DC5-42E0-BE99-093A87619395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSClient.UWP.Startup", "FSClient.UWP.Startup\FSClient.UWP.Startup.csproj", "{65E3DBB9-4DC6-4274-B787-35F88061FA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSClient.UWP.Startup", "FSClient.UWP.Startup\FSClient.UWP.Startup.csproj", "{65E3DBB9-4DC6-4274-B787-35F88061FA4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -122,8 +122,8 @@ Global
 		{2FBAA550-5A38-449B-838E-0AD7E76DDEA4}.Release|x64.Build.0 = Release|Any CPU
 		{2FBAA550-5A38-449B-838E-0AD7E76DDEA4}.Release|x86.ActiveCfg = Release|Any CPU
 		{2FBAA550-5A38-449B-838E-0AD7E76DDEA4}.Release|x86.Build.0 = Release|Any CPU
-		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|Any CPU.Build.0 = Debug|x86
+		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|Any CPU.Build.0 = Debug|x64
 		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|ARM.ActiveCfg = Debug|ARM
 		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|ARM.Build.0 = Debug|ARM
 		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Debug|arm64.ActiveCfg = Debug|ARM64
@@ -143,7 +143,6 @@ Global
 		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Release|x86.ActiveCfg = Release|x86
 		{8C8B13FE-185F-41B8-9697-0FCCE561BB43}.Release|x86.Build.0 = Release|x86
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Debug|ARM.Build.0 = Debug|Any CPU
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Debug|arm64.ActiveCfg = Debug|Any CPU
@@ -163,7 +162,6 @@ Global
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD8E9722-332F-4983-8FF0-27646B2E353F}.Release|x86.Build.0 = Release|Any CPU
 		{CD699CBB-EDA4-4C53-866B-500F314C9B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD699CBB-EDA4-4C53-866B-500F314C9B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD699CBB-EDA4-4C53-866B-500F314C9B64}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{CD699CBB-EDA4-4C53-866B-500F314C9B64}.Debug|ARM.Build.0 = Debug|Any CPU
 		{CD699CBB-EDA4-4C53-866B-500F314C9B64}.Debug|arm64.ActiveCfg = Debug|Any CPU
@@ -203,7 +201,6 @@ Global
 		{A6BF6529-2D8D-432C-8B7A-C874D49BE2C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{A6BF6529-2D8D-432C-8B7A-C874D49BE2C5}.Release|x86.Build.0 = Release|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Debug|ARM.Build.0 = Debug|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Debug|arm64.ActiveCfg = Debug|Any CPU
@@ -222,26 +219,26 @@ Global
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Release|x64.Build.0 = Release|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Release|x86.ActiveCfg = Release|Any CPU
 		{F1F268C6-ABD9-44CE-956E-A9EDE72CFFED}.Release|x86.Build.0 = Release|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|Any CPU.Build.0 = Debug|x64
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|ARM.Build.0 = Debug|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|arm64.ActiveCfg = Debug|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|arm64.Build.0 = Debug|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x64.Build.0 = Debug|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x86.Build.0 = Debug|Any CPU
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x64.ActiveCfg = Debug|x64
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x64.Build.0 = Debug|x64
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x86.ActiveCfg = Debug|x86
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Debug|x86.Build.0 = Debug|x86
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|ARM.ActiveCfg = Release|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|ARM.Build.0 = Release|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|arm64.ActiveCfg = Release|Any CPU
 		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|arm64.Build.0 = Release|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x64.ActiveCfg = Release|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x64.Build.0 = Release|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x86.ActiveCfg = Release|Any CPU
-		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x86.Build.0 = Release|Any CPU
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x64.ActiveCfg = Release|x64
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x64.Build.0 = Release|x64
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x86.ActiveCfg = Release|x86
+		{9CF65325-1B35-4621-95BD-95744D631F1E}.Release|x86.Build.0 = Release|x86
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -262,7 +259,8 @@ Global
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Release|x64.Build.0 = Release|Any CPU
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Release|x86.ActiveCfg = Release|Any CPU
 		{358D2441-4DC5-42E0-BE99-093A87619395}.Release|x86.Build.0 = Release|Any CPU
-		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|Any CPU.Build.0 = Debug|x64
 		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|ARM.ActiveCfg = Debug|ARM
 		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|ARM.Build.0 = Debug|ARM
 		{65E3DBB9-4DC6-4274-B787-35F88061FA4C}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -300,9 +298,9 @@ Global
 		{65E3DBB9-4DC6-4274-B787-35F88061FA4C} = {D616980D-FAA6-4C72-AFD2-E380D83A6C2A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_CodeReferences = {"Items":[{"Expression":"\\W($File.$Key)\\W","Extensions":".cs,.xaml,.cshtml","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\W($File.$Key)\\W","Extensions":".vbhtml","IsCaseSensitive":false,"SingleLineComment":null},{"Expression":"ResourceManager.GetString\\(\"($Key)\"\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"typeof\\((\\w+\\.)*($File)\\).+\"($Key)\"|\"($Key)\".+typeof\\((\\w+\\.)*($File)\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\W($Key)\\W","Extensions":".vb","IsCaseSensitive":false,"SingleLineComment":"'"},{"Expression":"\\W($File::$Key)\\W","Extensions":".cpp,.c,.hxx,.h","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"&lt;%\\$\\s+Resources:\\s*($File)\\s*,\\s*($Key)\\s*%&gt;","Extensions":".aspx,.ascx,.master","IsCaseSensitive":true,"SingleLineComment":null},{"Expression":"StringResourceKey\\.($Key)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\.($Key)","Extensions":".ts,.html","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\{CustomResource $Key\\}","Extensions":".xaml","IsCaseSensitive":true,"SingleLineComment":null}]}
-		RESX_SortFileContentOnSave = True
-		RESX_NeutralResourcesLanguage = ru-RU
 		SolutionGuid = {4902FDDF-867D-4B55-A8B5-1041B7334851}
+		RESX_NeutralResourcesLanguage = ru-RU
+		RESX_SortFileContentOnSave = True
+		RESX_CodeReferences = {"Items":[{"Expression":"\\W($File.$Key)\\W","Extensions":".cs,.xaml,.cshtml","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\W($File.$Key)\\W","Extensions":".vbhtml","IsCaseSensitive":false,"SingleLineComment":null},{"Expression":"ResourceManager.GetString\\(\"($Key)\"\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"typeof\\((\\w+\\.)*($File)\\).+\"($Key)\"|\"($Key)\".+typeof\\((\\w+\\.)*($File)\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\W($Key)\\W","Extensions":".vb","IsCaseSensitive":false,"SingleLineComment":"'"},{"Expression":"\\W($File::$Key)\\W","Extensions":".cpp,.c,.hxx,.h","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"&lt;%\\$\\s+Resources:\\s*($File)\\s*,\\s*($Key)\\s*%&gt;","Extensions":".aspx,.ascx,.master","IsCaseSensitive":true,"SingleLineComment":null},{"Expression":"StringResourceKey\\.($Key)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\.($Key)","Extensions":".ts,.html","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\{CustomResource $Key\\}","Extensions":".xaml","IsCaseSensitive":true,"SingleLineComment":null}]}
 	EndGlobalSection
 EndGlobal

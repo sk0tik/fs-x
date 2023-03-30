@@ -155,8 +155,8 @@
                 .ConfigureAwait(false);
 
             return cache = (
-                Regex.Match(script, @"hash2:""(?<hash>.+?)""").Groups["hash"].Value.NotEmptyOrNull(),
-                Regex.Match(script, @"getPlayerData\(\){.+?url:""(?<relativeLink>.+?)""").Groups["relativeLink"].Value.NotEmptyOrNull()
+                Regex.Match(script!, @"hash2:""(?<hash>.+?)""").Groups["hash"].Value.NotEmptyOrNull(),
+                Regex.Match(script!, @"getPlayerData\(\){.+?url:""(?<relativeLink>.+?)""").Groups["relativeLink"].Value.NotEmptyOrNull()
             );
         }
 

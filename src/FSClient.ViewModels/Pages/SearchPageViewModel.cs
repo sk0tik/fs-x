@@ -42,7 +42,7 @@
         {
             this.itemManager = itemManager;
             this.collectionFactory = collectionFactory;
-            PropertyChanged += SectionPageFilter_PropertyChanged;
+            PropertyChanged += SectionPageFilter_PropertyChanged!;
         }
 
         public string SearchRequest

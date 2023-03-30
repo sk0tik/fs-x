@@ -37,7 +37,7 @@
         private const int ItemPreloadingTimeout = 500;
 
         private static readonly Timer commandExecutingTimer =
-            new Timer(ExecuteCommandOnTimer, null, 0, Timeout.Infinite);
+            new Timer(ExecuteCommandOnTimer!, null, 0, Timeout.Infinite);
 
         private static ExecutionContext? nextExecurtionContext;
 

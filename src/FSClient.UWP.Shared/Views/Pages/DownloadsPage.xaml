@@ -256,16 +256,16 @@
       <VisualStateGroup x:Name="CommandBarVisibilityGroup">
         <VisualState x:Name="ShowTopBarWithHeaderState">
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="Or">
+            <!--<winTriggers:CompositeStateTrigger Operator="Or">
               <winTriggers:CompositeStateTrigger Operator="And">
-                <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowWidth}" />
+                <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowWidth}" />-->
                 <StateTrigger IsActive="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
-              </winTriggers:CompositeStateTrigger>
+              <!--</winTriggers:CompositeStateTrigger>
               <winTriggers:CompositeStateTrigger Operator="And">
                 <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
                 <winTriggers:IsFalseStateTrigger Value="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
               </winTriggers:CompositeStateTrigger>
-            </winTriggers:CompositeStateTrigger>
+            </winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="TopBar.Visibility" Value="Visible" />
@@ -298,10 +298,10 @@
       <VisualStateGroup x:Name="MobileBackgroundDownloadAlertGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:DeviceFamilyStateTrigger DeviceFamily="Mobile" />
+            <!--<winTriggers:DeviceFamilyStateTrigger DeviceFamily="Mobile" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
-            <Setter Target="BackgroundDownloadAlert.Visibility" Value="Visible" />
+            <!--<Setter Target="BackgroundDownloadAlert.Visibility" Value="Visible" />-->
           </VisualState.Setters>
         </VisualState>
       </VisualStateGroup>
@@ -347,10 +347,10 @@
       <VisualStateGroup x:Name="SelectionVisibilityGroup">
         <VisualState x:Name="SelectionWideState">
           <VisualState.StateTriggers>
-            <winTriggers:CompositeStateTrigger Operator="And">
+            <!--<winTriggers:CompositeStateTrigger Operator="And">-->
               <StateTrigger IsActive="{x:Bind ViewModel.IsInSelectionMode, Mode=OneWay}" />
-              <winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />
-            </winTriggers:CompositeStateTrigger>
+              <!--<winTriggers:AdaptiveTrigger MinWindowWidth="{StaticResource MobileWindowWidth}" />-->
+            <!--</winTriggers:CompositeStateTrigger>-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="DeleteButton.Visibility" Value="Visible" />

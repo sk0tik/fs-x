@@ -93,13 +93,13 @@
         }
 
         /// <inheridoc/>
-        public bool Equals(TorrentFolder other)
+        public bool Equals(TorrentFolder? other)
         {
             return base.Equals(other);
         }
 
         /// <inheridoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Folder another && Equals(another);
         }

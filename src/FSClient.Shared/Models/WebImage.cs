@@ -98,7 +98,7 @@
             return (originalLink, previewLink, thumbLink) == (other.originalLink, other.previewLink, other.thumbLink);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is WebImage webImage && Equals(webImage);
         }

@@ -77,7 +77,7 @@
             if (updateTimer == null)
             {
                 updateTimer = new DispatcherTimer();
-                updateTimer.Tick += UpdateTimer_Tick;
+                updateTimer.Tick += UpdateTimer_Tick!;
             }
 
             updateTimer.Start();

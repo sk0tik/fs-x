@@ -12,10 +12,10 @@
             canExecuteChangedEvent = new ContextSafeEvent<EventHandler>();
         }
 
-        public event EventHandler CanExecuteChanged
+        public event EventHandler? CanExecuteChanged
         {
-            add => canExecuteChangedEvent.Register(value);
-            remove => canExecuteChangedEvent.Unregister(value);
+            add => canExecuteChangedEvent.Register(value!);
+            remove => canExecuteChangedEvent.Unregister(value!);
         }
 
         public abstract bool CanExecute(object? parameter = null);

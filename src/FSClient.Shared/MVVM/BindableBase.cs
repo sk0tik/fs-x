@@ -19,10 +19,10 @@
             propertyChangedEvent = new ContextSafeEvent<PropertyChangedEventHandler>();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged
         {
-            add => propertyChangedEvent.Register(value);
-            remove => propertyChangedEvent.Unregister(value);
+            add => propertyChangedEvent.Register(value!);
+            remove => propertyChangedEvent.Unregister(value!);
         }
 
         [return: NotNullIfNotNull("def")]

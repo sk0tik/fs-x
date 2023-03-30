@@ -85,7 +85,7 @@
                 return false;
             }
 
-            if (item.Link?.GetPath().Contains(item.SiteId) != true)
+            if (item.Link?.GetPath().Contains(item.SiteId!) != true)
             {
                 item.Link = new Uri(domain, $"drama/{item.SiteId}-l.html");
             }

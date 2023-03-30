@@ -40,7 +40,7 @@
 
             InitializeComponent();
 
-            FileViewModel.PropertyChanged += FilesViewModel_PropertyChanged;
+            FileViewModel.PropertyChanged += FilesViewModel_PropertyChanged!;
         }
 
         public Visibility CommandBarVisibility

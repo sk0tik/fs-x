@@ -35,8 +35,9 @@
 
         private static bool Allowed
         {
-            get => ObjectHelper.SafeCast(ApplicationData.Current.LocalSettings.Values[nameof(Settings.UseTelemetry)],
-                true);
+            get => false; 
+                //ObjectHelper.SafeCast(ApplicationData.Current.LocalSettings.Values[nameof(Settings.UseTelemetry)],
+                //true);
             set => ApplicationData.Current.LocalSettings.Values[nameof(Settings.UseTelemetry)] = value;
         }
 
@@ -76,11 +77,12 @@
 
             try
             {
-                if (ApiInformation.IsEventPresent(typeof(Application).FullName, nameof(Application.EnteredBackground)))
-                {
-                    Application.Current.EnteredBackground += (s, e) => IsOnBackground = true;
-                    Application.Current.LeavingBackground += (s, e) => IsOnBackground = false;
-                }
+                // HACK: UWP Only?
+                //if (ApiInformation.IsEventPresent(typeof(Application).FullName, nameof(Application.EnteredBackground)))
+                //{
+                //    Application.Current.EnteredBackground += (s, e) => IsOnBackground = true;
+                //    Application.Current.LeavingBackground += (s, e) => IsOnBackground = false;
+                //}
 
                 IsApplicationAvailable = true;
             }
@@ -102,12 +104,16 @@
             } && AppCenter.Configured && (!Settings.Initialized || Settings.Instance.UseTelemetry);
         }
 
+#pragma warning disable CS8633 // Допустимость значения NULL в ограничениях для параметра типа не соответствует ограничениям параметра типа в явно реализованном методе интерфейса.
         public IDisposable BeginScope<TState>(TState state)
+#pragma warning restore CS8633 // Допустимость значения NULL в ограничениях для параметра типа не соответствует ограничениям параметра типа в явно реализованном методе интерфейса.
         {
             return NoopDisposable.Instance;
         }
 
+#pragma warning disable CS8767 // Допустимость значений NULL для ссылочных типов в типе параметра не соответствует неявно реализованному элементу (возможно, из-за атрибутов допустимости значений NULL).
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
+#pragma warning restore CS8767 // Допустимость значений NULL для ссылочных типов в типе параметра не соответствует неявно реализованному элементу (возможно, из-за атрибутов допустимости значений NULL).
             Func<TState, Exception?, string> formatter)
         {
             try

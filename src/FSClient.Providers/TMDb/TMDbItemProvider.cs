@@ -185,7 +185,7 @@
                     var currentPage = json["page"]?.ToIntOrNull() ?? index + 1;
                     return currentPage <= maxPages;
                 })
-                .SelectAwaitWithCancellation((json, ct) => json!["results"]
+                .SelectAwaitWithCancellation((json, ct) => json!["results"]!
                     .OfType<JObject>()
                     .ToAsyncEnumerable()
                     .SelectAwaitWithCancellation(itemInfoProvider.CreateItemInfoFromJsonAsync)

@@ -97,9 +97,9 @@
         private async Task<IEnumerable<ITreeNode>> LoadRootFromItemsAsync(ItemInfo currentItem, CancellationToken cancellationToken)
         {
             var domain = await siteProvider.GetMirrorAsync(cancellationToken).ConfigureAwait(false);
-            currentItem.Link = new Uri(domain, currentItem.Link);
+            currentItem.Link = new Uri(domain, currentItem.Link!);
 
-            var apiHash = currentItem.Link?.Segments.Skip(2).FirstOrDefault().Trim('/') ?? Secrets.UStoreApiKey;
+            var apiHash = currentItem.Link?.Segments.Skip(2).FirstOrDefault()!.Trim('/') ?? Secrets.UStoreApiKey;
             if (apiHash == null)
             {
                 return Enumerable.Empty<ITreeNode>();
@@ -112,7 +112,7 @@
             else
             {
                 var text = await siteProvider.HttpClient
-                    .GetBuilder(new Uri(domain, currentItem.Link))
+                    .GetBuilder(new Uri(domain, currentItem.Link!))
                     .WithHeader("Origin", domain.GetOrigin())
                     .WithHeader("Referer", domain.ToString())
                     .SendAsync(cancellationToken)
@@ -160,7 +160,7 @@
                 }
                 else
                 {
-                    var fileHash = currentItem.Link?.Segments.Skip(3).FirstOrDefault().Trim('/');
+                    var fileHash = currentItem.Link?.Segments.Skip(3).FirstOrDefault()!.Trim('/');
                     if (fileHash == null)
                     {
                         return Enumerable.Empty<ITreeNode>();
@@ -458,7 +458,7 @@
             }
 
             mitmScriptCache = await siteProvider.HttpClient
-                .GetBuilder(new Uri(mitmScriptLink))
+                .GetBuilder(new Uri(mitmScriptLink!))
                 .SendAsync(default)
                 .AsText()
                 .ConfigureAwait(false);

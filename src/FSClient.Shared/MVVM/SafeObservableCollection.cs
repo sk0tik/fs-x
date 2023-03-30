@@ -30,16 +30,16 @@
             collectionChangedEvent = new ContextSafeEvent<NotifyCollectionChangedEventHandler>();
         }
 
-        public override event NotifyCollectionChangedEventHandler CollectionChanged
+        public override event NotifyCollectionChangedEventHandler? CollectionChanged
         {
-            add => collectionChangedEvent.Register(value);
-            remove => collectionChangedEvent.Unregister(value);
+            add => collectionChangedEvent.Register(value!);
+            remove => collectionChangedEvent.Unregister(value!);
         }
 
-        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
+        event PropertyChangedEventHandler? INotifyPropertyChanged.PropertyChanged
         {
-            add => propertyChangedEvent.Register(value);
-            remove => propertyChangedEvent.Unregister(value);
+            add => propertyChangedEvent.Register(value!);
+            remove => propertyChangedEvent.Unregister(value!);
         }
 
         public bool HasAnyItem => Count > 0;

@@ -69,7 +69,7 @@
                     yield break;
                 }
 
-                if (response?.RequestMessage.RequestUri?.ToString() is { } requestUri)
+                if (response?.RequestMessage?.RequestUri?.ToString() is { } requestUri)
                 {
                     var pageIndex = requestUri.IndexOf("/page");
                     baseLink = pageIndex >= 0

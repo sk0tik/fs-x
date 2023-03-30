@@ -27,11 +27,11 @@
             await Task.Delay(10);
 
             var tcs = new TaskCompletionSource<bool>();
-            listView.LayoutUpdated += ListViewLayoutUpdated;
+            listView.LayoutUpdated += ListViewLayoutUpdated!;
 
             async void ListViewLayoutUpdated(object _, object __)
             {
-                listView.LayoutUpdated -= ListViewLayoutUpdated;
+                listView.LayoutUpdated -= ListViewLayoutUpdated!;
                 if (listView.ContainerFromItem(item) is Control inControl)
                 {
                     var result = await inControl.TryFocusAsync(FocusState.Keyboard).ConfigureAwait(false);

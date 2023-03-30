@@ -73,7 +73,7 @@
             return Quality.CompareTo(other?.Quality ?? 0);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Video other && Equals(other);
         }

@@ -35,7 +35,7 @@
 
             ShowProgress = false;
 
-            this.favoriteManager.FavoritesChanged += FavoriteManager_FavoritesChanged;
+            this.favoriteManager.FavoritesChanged += FavoriteManager_FavoritesChanged!;
             CheckKindCommand = new AsyncCommand<FavoriteListKind>(
                 (kind, ct) => SetupTypeAsync(kind, true, ct),
                 _ => !ShowProgress);

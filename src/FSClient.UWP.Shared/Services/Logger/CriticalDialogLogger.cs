@@ -17,7 +17,9 @@
     {
         private readonly LazyDialog<ConfirmDialog, string, bool> confirmDialog = new LazyDialog<ConfirmDialog, string, bool>();
 
+#pragma warning disable CS8633 // Допустимость значения NULL в ограничениях для параметра типа не соответствует ограничениям параметра типа в явно реализованном методе интерфейса.
         public IDisposable BeginScope<TState>(TState state)
+#pragma warning restore CS8633 // Допустимость значения NULL в ограничениях для параметра типа не соответствует ограничениям параметра типа в явно реализованном методе интерфейса.
         {
             return NoopDisposable.Instance;
         }
@@ -27,7 +29,9 @@
             return logLevel == LogLevel.Critical;
         }
 
+#pragma warning disable CS8767 // Допустимость значений NULL для ссылочных типов в типе параметра не соответствует неявно реализованному элементу (возможно, из-за атрибутов допустимости значений NULL).
         public async void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+#pragma warning restore CS8767 // Допустимость значений NULL для ссылочных типов в типе параметра не соответствует неявно реализованному элементу (возможно, из-за атрибутов допустимости значений NULL).
         {
             if (!IsEnabled(logLevel))
             {
@@ -39,7 +43,7 @@
 
             if (shouldClose)
             {
-                Application.Current.Exit();
+                Microsoft.UI.Xaml.Application.Current.Exit();
             }
         }
 

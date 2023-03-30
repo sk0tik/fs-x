@@ -81,7 +81,7 @@
                     TitleOrigin = titleEn,
                     LinkedIds =
                     {
-                        [Sites.Kinopoisk] = kinopoiskId.ToString()
+                        [Sites.Kinopoisk] = kinopoiskId.ToString()!
                     }
                 },
                 Section = Section.CreateDefault(isSerial ? SectionModifiers.Serial : SectionModifiers.Film)

@@ -261,7 +261,7 @@
                     avatarCook,
                     endTimeCookie
                 }
-                .Where(c => c != null);
+                .Where(c => c != null)!;
         }
 
         private async Task<(string? accessToken, string? refreshToken)> RefreshAccessTokenAsync(

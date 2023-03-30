@@ -78,7 +78,7 @@
             };
             if (kinopoiskId.HasValue)
             {
-                itemInfo.Details.LinkedIds.Add(Sites.Kinopoisk, kinopoiskId.ToString());
+                itemInfo.Details.LinkedIds.Add(Sites.Kinopoisk, kinopoiskId.ToString()!);
             }
 
             if (item["seasons"] is JArray seasons)

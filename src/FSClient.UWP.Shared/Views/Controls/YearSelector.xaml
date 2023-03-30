@@ -52,7 +52,7 @@
         </VisualState>
         <VisualState>
           <VisualState.StateTriggers>
-            <winTriggers:IsFalseStateTrigger Value="{x:Bind AllowYearsRange, Mode=OneWay}" />
+            <!--<winTriggers:IsFalseStateTrigger Value="{x:Bind AllowYearsRange, Mode=OneWay}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="SingleYearSelector.Visibility" Value="Visible" />

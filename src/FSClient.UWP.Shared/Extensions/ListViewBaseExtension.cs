@@ -68,13 +68,13 @@
                         return;
                     }
 
-                    scrollViewer.ViewChanged -= ScrollViewer_ViewChanged;
+                    scrollViewer.ViewChanged -= ScrollViewer_ViewChanged!;
                     list.DataContext = null;
                     list.ItemsSource = null;
 
                     if (e.NewValue is IIncrementalCollection incrementalCollection)
                     {
-                        scrollViewer.ViewChanged += ScrollViewer_ViewChanged;
+                        scrollViewer.ViewChanged += ScrollViewer_ViewChanged!;
 
                         var source = new CollectionViewSource {IsSourceGrouped = true, Source = incrementalCollection};
                         list.DataContext = source;
@@ -103,7 +103,7 @@
 
                     if (!collection.HasMoreItems)
                     {
-                        scrollViewer.ViewChanged -= ScrollViewer_ViewChanged;
+                        scrollViewer.ViewChanged -= ScrollViewer_ViewChanged!;
                     }
 
                     while (!collection.IsLoading
@@ -128,7 +128,7 @@
                 listViewBase.SelectionChanged -= ListViewBase_SelectionChanged;
                 if (e.OldValue is ObservableCollection<object> oldObservable)
                 {
-                    oldObservable.CollectionChanged -= Observable_CollectionChanged;
+                    oldObservable.CollectionChanged -= Observable_CollectionChanged!;
                 }
 
                 if (e.NewValue is ICollection collection)
@@ -136,7 +136,7 @@
                     listViewBase.SelectionChanged += ListViewBase_SelectionChanged;
                     if (collection is ObservableCollection<object> observable)
                     {
-                        observable.CollectionChanged += Observable_CollectionChanged;
+                        observable.CollectionChanged += Observable_CollectionChanged!;
                     }
                 }
             }

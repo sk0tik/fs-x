@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows10.0.18362.0</TargetFrameworks>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.16.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" PrivateAssets="all" />
+	  <!--PackageReference Include="Newtonsoft.Json" Version="13.0.1" PrivateAssets="all" /-->
     <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     <PackageReference Include="Jint" Version="3.0.0-beta-1914" />

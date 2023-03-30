@@ -276,7 +276,7 @@
             await Dispatcher.RunTaskAsync(async () =>
             {
                 var index = RemoteSystems.IndexOf(
-                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystem.Id));
+                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystem.Id)!);
                 if (index > -1)
                 {
                     var item = new RemoteSystemVM(args.RemoteSystem);
@@ -292,7 +292,7 @@
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 var index = RemoteSystems.IndexOf(
-                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystemId));
+                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystemId)!);
                 if (index >= 0)
                 {
                     RemoteSystems.RemoveAt(index);
@@ -313,7 +313,7 @@
             await Dispatcher.RunTaskAsync(async () =>
             {
                 var index = RemoteSystems.IndexOf(
-                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystem.Id));
+                    RemoteSystems.FirstOrDefault(rs => rs.RemoteSystemEntry?.Id == args.RemoteSystem.Id)!);
                 if (index < 0)
                 {
                     LoadingProgressRing.Visibility = Visibility.Collapsed;
@@ -348,7 +348,7 @@
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 var index = RemoteSystems.IndexOf(
-                    RemoteSystems.FirstOrDefault(rs => rs.DeviceInformationEntry?.Id == args.Id));
+                    RemoteSystems.FirstOrDefault(rs => rs.DeviceInformationEntry?.Id == args.Id)!);
                 if (index >= 0)
                 {
                     RemoteSystems.RemoveAt(index);
@@ -368,7 +368,7 @@
             await Dispatcher.RunTaskAsync(async () =>
             {
                 var index = RemoteSystems.IndexOf(
-                    RemoteSystems.FirstOrDefault(rs => rs.DeviceInformationEntry?.Id == args.Id));
+                    RemoteSystems.FirstOrDefault(rs => rs.DeviceInformationEntry?.Id == args.Id)!);
                 if (index < 0)
                 {
                     LoadingProgressRing.Visibility = Visibility.Collapsed;

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "FSClient.UWP.Startup (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FSClient.UWP.Startup (Unpackaged)": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}

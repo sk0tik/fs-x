@@ -104,7 +104,7 @@
       <VisualStateGroup x:Name="SortButtonVisibilityGroup">
         <VisualState>
           <VisualState.StateTriggers>
-            <windowsstatetriggers:IsFalseStateTrigger Value="{x:Bind ViewModel.CurrentPage.CanSort, Mode=OneWay, FallbackValue=False}" />
+            <!--<windowsstatetriggers:IsFalseStateTrigger Value="{x:Bind ViewModel.CurrentPage.CanSort, Mode=OneWay, FallbackValue=False}" />-->
           </VisualState.StateTriggers>
           <VisualState.Setters>
             <Setter Target="MoreButton.Visibility" Value="Collapsed" />

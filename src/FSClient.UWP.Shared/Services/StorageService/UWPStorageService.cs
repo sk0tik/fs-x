@@ -227,7 +227,7 @@
                     StorageApplicationPermissions.FutureAccessList.AddOrReplace(token, uwpFolder);
                 }
 
-                return Task.FromResult(token);
+                return Task.FromResult(token)!;
             }
             catch (Exception ex)
             {

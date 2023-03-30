@@ -34,10 +34,10 @@
             return source.Select(keySelector).OrderBy(k => k).FirstOrDefault();
         }
 
-        public static IEnumerable<TInput> DistinctBy<TInput, TKey>(this IEnumerable<TInput> source, Func<TInput, TKey> keySelector)
-        {
-            return source.Distinct(new LamdbaPropertyComparer<TInput, TKey>(keySelector));
-        }
+        //public static IEnumerable<TInput> DistinctBy<TInput, TKey>(this IEnumerable<TInput> source, Func<TInput, TKey> keySelector)
+        //{
+        //    return source.Distinct(new LamdbaPropertyComparer<TInput, TKey>(keySelector));
+        //}
 
         public static IAsyncEnumerable<TInput> DistinctBy<TInput, TKey>(this IAsyncEnumerable<TInput> source, Func<TInput, TKey> keySelector)
         {

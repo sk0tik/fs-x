@@ -97,7 +97,7 @@
                 args.Add("title", searchRequest);
             }
 
-            var apiLink = new Uri(siteProvider.Properties[KodikSiteProvider.KodikApiDomainKey]);
+            var apiLink = new Uri(siteProvider.Properties[KodikSiteProvider.KodikApiDomainKey]!);
             var result = await siteProvider.HttpClient
                 .GetBuilder(new Uri(apiLink, "/search"))
                 .WithArguments(args)
@@ -170,7 +170,7 @@
 
                     if (kinopoiskId.HasValue)
                     {
-                        itemInfo.Details.LinkedIds.Add(Sites.Kinopoisk, kinopoiskId.ToString());
+                        itemInfo.Details.LinkedIds.Add(Sites.Kinopoisk, kinopoiskId.ToString()!);
                     }
 
                     return (prox, item: itemInfo);

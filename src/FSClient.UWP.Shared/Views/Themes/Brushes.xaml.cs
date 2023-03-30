@@ -33,7 +33,8 @@
                     {
                         this["ItemBackgroundBrush"] = new AcrylicBrush
                         {
-                            BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                            //BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                            
                             TintColor = itemBrush.Color,
                             FallbackColor = itemBrush.Color,
                             AlwaysUseFallback = false,
@@ -45,7 +46,7 @@
                     {
                         this["PlayerBackgroundBrush"] = new AcrylicBrush
                         {
-                            BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                            //BackgroundSource = AcrylicBackgroundSource.Backdrop,
                             TintColor = playerBrush.Color,
                             FallbackColor = playerBrush.Color,
                             AlwaysUseFallback = false,
@@ -57,7 +58,7 @@
                     {
                         this["PaneBackgroundBrush"] = new AcrylicBrush
                         {
-                            BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                            //BackgroundSource = AcrylicBackgroundSource.Backdrop,
                             TintColor = paneBrush.Color,
                             FallbackColor = paneBrush.Color,
                             AlwaysUseFallback = false,

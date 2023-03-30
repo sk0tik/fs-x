@@ -18,7 +18,7 @@
         {
             DownloadFile = downloadFile;
 
-            downloadManager.DownloadProgressChanged += DownloadManager_DownloadProgressChanged;
+            downloadManager.DownloadProgressChanged += DownloadManager_DownloadProgressChanged!;
 
             PauseFileCommand = new AsyncCommand(
                 (_) => downloadManager.TogglePlayPauseAsync(downloadFile),

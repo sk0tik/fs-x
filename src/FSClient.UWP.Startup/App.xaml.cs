@@ -1,57 +1,107 @@
-﻿namespace FSClient.UWP.Startup
+﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Shapes;
+using Microsoft.Windows.AppLifecycle;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using FSClient.UWP.Startup;
+using FSClient.UWP.Shared.Services;
+using System.Diagnostics;
+
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
+
+namespace FSClient.UWP.Startup
 {
-    using Windows.ApplicationModel;
-    using Windows.ApplicationModel.Activation;
-    using Windows.UI.Xaml;
-
-    using FSClient.UWP.Shared.Services;
-
-    public sealed partial class App : Application
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
+    public partial class App : Application
     {
         private readonly ActivationService activationService;
+        /// <summary>
+        /// Initializes the singleton application object.  This is the first line of authored code
+        /// executed, and as such is the logical equivalent of main() or WinMain().
+        /// </summary>
 
         public App()
         {
             activationService = new ActivationService();
-
-            InitializeComponent();
-            Suspending += OnSuspending;
-        }
-
-        protected override async void OnLaunched(LaunchActivatedEventArgs args)
-        {
-            if (!args.PrelaunchActivated)
+            this.InitializeComponent();
+            //    this.InitializeComponent();
+            if (System.Diagnostics.Debugger.IsAttached)
             {
-                await activationService.ActivateAsync(Window.Current, args);
+                this.DebugSettings.EnableFrameRateCounter = false;
+                this.DebugSettings.BindingFailed += (object sender, BindingFailedEventArgs args) =>
+                {
+                    Debug.WriteLine(args.Message);
+                };
             }
         }
 
-        protected override async void OnActivated(IActivatedEventArgs args)
+        /// <summary>
+        /// Invoked when the application is launched normally by the end user.  Other entry points
+        /// will be used such as when the application is launched to open a specific file.
+        /// </summary>
+        /// <param name="args">Details about the launch request and process.</param>
+        protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs e)
         {
-            await activationService.ActivateAsync(Window.Current, args);
-        }
+            // TODO This code defaults the app to a single instance app. If you need multi instance app, remove this part.
+            // Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle#single-instancing-in-applicationonlaunched
+            // If this is the first instance launched, then register it as the "main" instance.
+            // If this isn't the first instance launched, then "main" will already be registered,
+            // so retrieve it.
+            var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
+            var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
 
-        protected override async void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
-        {
-            await activationService.ActivateAsync(Window.Current, args);
-        }
+            // If the instance that's executing the OnLaunched handler right now
+            // isn't the "main" instance.
 
-        protected override async void OnSearchActivated(SearchActivatedEventArgs args)
-        {
-            await activationService.ActivateAsync(Window.Current, args);
-        }
 
-        private async void OnSuspending(object _, SuspendingEventArgs args)
-        {
-            var deferral = args.SuspendingOperation?.GetDeferral();
-            try
+
+            if (!mainInstance.IsCurrent)
             {
-                await activationService.DeactivateAsync(appSuspending: true).ConfigureAwait(true);
+                // Redirect the activation (and args) to the "main" instance, and exit.
+                await mainInstance.RedirectActivationToAsync(activatedEventArgs);
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                return;
             }
-            finally
+
+            // TODO This code handles app activation types. Add any other activation kinds you want to handle.
+            // Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle#file-type-association
+            if (activatedEventArgs.Kind == ExtendedActivationKind.File)
             {
-                deferral?.Complete();
+                OnFileActivated(activatedEventArgs);
             }
+
+            // Initialize MainWindow here
+            Window = new MainWindow();
+            Window.Activate();
+            WindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(Window);
+            await activationService.ActivateAsync(App.Window, e);
         }
+
+        // TODO This is an example method for the case when app is activated through a file.
+        // Feel free to remove this if you do not need this.
+        public void OnFileActivated(AppActivationArguments activatedEventArgs)
+        {
+
+        }
+
+        public static MainWindow? Window { get; private set; }
+
+        public static IntPtr WindowHandle { get; private set; }
     }
 }

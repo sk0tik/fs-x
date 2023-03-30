@@ -131,7 +131,7 @@
                         ct)
                     .AsNewtonsoftJson<JArray>()))
                 .TakeWhile(json => json != null)
-                .SelectAwaitWithCancellation((json, ct) => json
+                .SelectAwaitWithCancellation((json, ct) => json!
                     .OfType<JObject>()
                     .ToAsyncEnumerable()
                     .Select(jsonItem =>

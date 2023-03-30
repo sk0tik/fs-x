@@ -46,8 +46,8 @@
             PageParams = pageFilter.PageParams;
             SelectedTags = new ObservableCollection<TitledTag>(FilterFromCache.SelectedTags);
 
-            PropertyChanged += SectionPageFilter_PropertyChanged;
-            SelectedTags.CollectionChanged += SelectedTags_CollectionChanged;
+            PropertyChanged += SectionPageFilter_PropertyChanged!;
+            SelectedTags.CollectionChanged += SelectedTags_CollectionChanged!;
         }
 
         protected TSectionPageFilter FilterFromCache { get; }

@@ -4,10 +4,22 @@
 
     public struct NumericStringComparer : IComparer<string>
     {
-        public int Compare(string x, string y)
+        public int Compare(string? x, string? y)
         {
-            var len1 = x.Length;
-            var len2 = y.Length;
+            var len1 = 0;
+            var len2 = 0;
+            if (x is not null)
+            {
+                len1 = x.Length;
+            }
+            else { x = ""; }
+
+            if (y is not null)
+            {
+                len2 = y.Length;
+            } else { y = ""; }
+
+
             var marker1 = 0;
             var marker2 = 0;
 

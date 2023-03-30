@@ -282,7 +282,7 @@
 
                     return currentPage <= maxPage;
                 })
-                .SelectMany(tuple => tuple.elements
+                .SelectMany(tuple => tuple.elements!
                    .Select(i => FilmixSiteProvider.ParseElement(tuple.domain, i))
                    .Where(i => i != null
                        && (section == Section.Any || section == i.Section))

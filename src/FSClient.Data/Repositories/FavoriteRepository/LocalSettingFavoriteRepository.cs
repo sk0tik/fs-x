@@ -245,7 +245,7 @@
                 && (bool)isCartoonTemp;
 
             var section = setting.TryGetValue("Section", out var tempSection)
-                ? new Section(tempSection.ToString())
+                ? new Section(tempSection.ToString()!)
                 : Section.CreateDefault(
                     (isSerial ? SectionModifiers.Serial : SectionModifiers.Film)
                     | (isCartoon ? SectionModifiers.Cartoon : SectionModifiers.None));

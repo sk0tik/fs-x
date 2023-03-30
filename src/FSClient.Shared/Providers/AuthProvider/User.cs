@@ -33,7 +33,7 @@
                 && (AccessToken is null ? Nickname == other.Nickname : AccessToken == other.AccessToken);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is User user && Equals(user);
         }

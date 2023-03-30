@@ -59,26 +59,27 @@
 
         public string DisplayName => Package.Current.DisplayName;
 
-        public bool IsXYModeEnabled
-        {
-            get => Application.Current.RequiresPointerMode == ApplicationRequiresPointerMode.WhenRequested;
-            set
-            {
-                try
-                {
-                    Application.Current.RequiresPointerMode = value
-                        ? ApplicationRequiresPointerMode.WhenRequested
-                        : ApplicationRequiresPointerMode.Auto;
-                }
-                catch (Exception ex)
-                {
-                    if (Logger.Initialized)
-                    {
-                        Logger.Instance.LogWarning(ex);
-                    }
-                }
-            }
-        }
+        public bool IsXYModeEnabled => false;
+        //{
+            // HACK: DROP XBOX SUPPORT
+            //get => Application.Current. RequiresPointerMode == ApplicationRequiresPointerMode.WhenRequested;
+            //set
+            //{
+            //   try
+            //    {
+            //        Application.Current.RequiresPointerMode = value
+            //            ? ApplicationRequiresPointerMode.WhenRequested
+            //            : ApplicationRequiresPointerMode.Auto;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        if (Logger.Initialized)
+            //        {
+            //            Logger.Instance.LogWarning(ex);
+            //        }
+            //    }
+            //}
+        //}
 
         public (ulong Current, ulong Total) MemoryUsage()
         {
@@ -126,23 +127,26 @@
 
         private static Version GetApplicationVersion()
         {
-            var ver = Package.Current.Id.Version;
-            return new Version(ver.Major, ver.Minor, ver.Build, ver.Revision);
+            // HACK: UWP HardCOde
+            //var ver = Package.Current.Id.Version;
+                return new Version(2, 0, 0, 0);
+          
         }
 
         private static bool GetIsUpdated()
         {
-            var current = versionFactory.Value;
-            _ = Version.TryParse(
-                ApplicationData.Current.LocalSettings.Values["Version"]?.ToString(),
-                out var last);
+            //var current = versionFactory.Value;
+            //_ = Version.TryParse(
+            //    ApplicationData.Current.LocalSettings.Values["Version"]?.ToString(),
+            //    out var last);
 
-            ApplicationData.Current.LocalSettings.Values["Version"] = current.ToString(3);
+            //ApplicationData.Current.LocalSettings.Values["Version"] = current.ToString(3);
 
-            return last != null
-                   && (last.Major != current.Major
-                       || last.Minor != current.Minor
-                       || last.Build != current.Build);
+            //return last != null
+            //       && (last.Major != current.Major
+            //           || last.Minor != current.Minor
+            //           || last.Build != current.Build);
+            return true;
         }
 
         private static (string manufacturer, string model) GetDeviceInfo()

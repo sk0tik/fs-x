@@ -272,7 +272,7 @@
 
                 if (video.CustomHeaders.Count > 0)
                 {
-                    source = await TryCreateSourceWithCustomHeadersAsync(link, video.CustomHeaders);
+                    source = await TryCreateSourceWithCustomHeadersAsync(link!, video.CustomHeaders);
                 }
 
                 if (source == null)
@@ -375,7 +375,7 @@
                 }
 
                 var stream =
-                    await HttpRandomAccessStream.CreateAsync(defaultHttpClient, variant.Parts.FirstOrDefault());
+                    await HttpRandomAccessStream.CreateAsync(defaultHttpClient, variant.Parts.FirstOrDefault()!);
                 var playbackItem = new MediaPlaybackItem(MediaSource.CreateFromStream(stream, stream.ContentType));
                 ApplyDisplayProperties(playbackItem, video);
                 return playbackItem;

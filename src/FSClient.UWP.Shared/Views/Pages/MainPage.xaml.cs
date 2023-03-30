@@ -35,7 +35,7 @@
     public partial class MainPage
     {
         private readonly NavigationViewItem hiddenButton;
-        private readonly SystemNavigationManager manager;
+        //private readonly SystemNavigationManager manager;
         private readonly Frame frame;
 
         private bool? isExpandedPaneOpen;
@@ -67,8 +67,9 @@
 
             InitializeComponent();
 
-            manager = SystemNavigationManager.GetForCurrentView();
-            manager.BackRequested += System_BackRequested;
+            // HACK: UWP ADD BACK BUTTON
+            //manager = SystemNavigationManager.GetForCurrentView();
+            //manager.BackRequested += System_BackRequested!;
 
             EnsureApplicationMargins();
             FrameNavigated(frame);
@@ -83,7 +84,7 @@
 
             Loaded += (s, e) => UpdatePane(frame.CurrentSourcePageType);
 
-            Settings.Instance.PropertyChanged += Settings_PropertyChanged;
+            Settings.Instance.PropertyChanged += Settings_PropertyChanged!;
             ContentGrid.Content = frame;
         }
 
@@ -106,13 +107,14 @@
             {
                 NavigationView.IsBackEnabled = frame.CanGoBack;
             }
-            else
-            {
-                manager.AppViewBackButtonVisibility =
-                    frame.CanGoBack
-                        ? AppViewBackButtonVisibility.Visible
-                        : AppViewBackButtonVisibility.Collapsed;
-            }
+            // HACK : UWP Back Button??
+            //else
+            //{
+            //    manager.AppViewBackButtonVisibility =
+            //        frame.CanGoBack
+            //            ? AppViewBackButtonVisibility.Visible
+            //            : AppViewBackButtonVisibility.Collapsed;
+            //}
         }
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs args)

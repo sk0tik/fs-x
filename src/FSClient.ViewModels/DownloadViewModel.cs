@@ -58,8 +58,8 @@
                 },
                 AsyncCommandConflictBehaviour.Skip);
 
-            this.downloadManager.FilesRemoved += DownloadManager_FilesRemoved;
-            this.downloadManager.DownloadProgressChanged += DownloadManager_DownloadProgressChanged;
+            this.downloadManager.FilesRemoved += DownloadManager_FilesRemoved!;
+            this.downloadManager.DownloadProgressChanged += DownloadManager_DownloadProgressChanged!;
 
             UpdateSourceCommand = new AsyncCommand(
                 UpdateSourceAsync,

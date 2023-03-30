@@ -155,7 +155,7 @@ namespace FSClient.UWP.Shared.Extensions
             startPosition = Window.Current.CoreWindow.PointerPosition;
 
             scrollTimer?.Dispose();
-            scrollTimer = new Timer(Scroll, scrollViewer, 5, 5);
+            scrollTimer = new Timer(Scroll!, scrollViewer, 5, 5);
 
             Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
             Window.Current.CoreWindow.PointerReleased -= CoreWindow_PointerReleased;
@@ -235,7 +235,7 @@ namespace FSClient.UWP.Shared.Extensions
 
             var pointer = e.Pointer;
 
-            if (pointer.PointerDeviceType == PointerDeviceType.Mouse
+            if (pointer.PointerDeviceType == Microsoft.UI.Input.PointerDeviceType.Mouse
                 && sender is ScrollViewer scrollViewer)
             {
                 if (scrollViewer.ScrollableHeight == 0

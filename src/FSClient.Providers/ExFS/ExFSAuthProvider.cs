@@ -115,7 +115,7 @@
             var result = await oauthDialog
                 .ShowAsync(
                     new OAuthDialogInput(
-                        new Uri(domain, oAuthProvider.AuthLink),
+                        new Uri(domain, oAuthProvider.AuthLink!),
                         domain,
                         new[] { "dle_user_id" }),
                     cancellationToken)

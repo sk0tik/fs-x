@@ -28,8 +28,9 @@
         {
             this.navigationService = navigationService;
 
-            langCache = ApplicationLanguages.PrimaryLanguageOverride
-                ?? CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            // HACK: UWP?
+            //langCache = ApplicationLanguages.PrimaryLanguageOverride ?? CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            langCache = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
         }
 
         public ValueTask ApplyLanguageAsync(string? name)
@@ -40,7 +41,9 @@
                 CultureInfo.DefaultThreadCurrentUICulture =
                     CultureInfo.CurrentCulture =
                         CultureInfo.CurrentUICulture = new CultureInfo(name);
-            langCache = ApplicationLanguages.PrimaryLanguageOverride = name;
+            // HACK : ?UWP
+            //langCache = ApplicationLanguages.PrimaryLanguageOverride = name;
+            langCache = name;
 
             // If window is not initized yet, we don't need to Reset resource context
             if (Window.Current?.Content == null
@@ -69,7 +72,10 @@
 
         public IEnumerable<string> GetAvailableLanguages()
         {
-            return ApplicationLanguages.ManifestLanguages;
+            // HACK: UWP?
+            //return ApplicationLanguages.ManifestLanguages;
+            return new List<string>() { "ru", "ru-RU", "en" };
+
         }
 
         public string GetCurrentLanguage()

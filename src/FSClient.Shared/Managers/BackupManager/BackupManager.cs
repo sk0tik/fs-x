@@ -207,7 +207,7 @@
                         kind: Enum.TryParse<FavoriteListKind>(t.fav.KindNameId, out var kind) ? kind : FavoriteListKind.None,
                         t.item))
                     .Where(t => t.kind != FavoriteListKind.None
-                        && favoriteManager.IsSupportedByProvider(t.item)
+                        && favoriteManager.IsSupportedByProvider(item: t.item!)
                         && favoriteManager.AvailableListKinds.Contains(t.kind))
                     .ToAsyncEnumerable()
                     .WhenAll((t, ct) => favoriteManager.AddToListAsync(t.item!, t.kind, ct).AsTask())

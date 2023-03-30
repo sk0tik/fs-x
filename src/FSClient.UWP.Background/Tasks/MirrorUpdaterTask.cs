@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 namespace FSClient.UWP.Background.Tasks
 {
     using System;

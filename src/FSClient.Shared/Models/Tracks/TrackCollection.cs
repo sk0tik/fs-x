@@ -24,10 +24,10 @@
             collectionChangedEvent = new ContextSafeEvent<NotifyCollectionChangedEventHandler>();
         }
 
-        public event NotifyCollectionChangedEventHandler CollectionChanged
+        public event NotifyCollectionChangedEventHandler? CollectionChanged
         {
-            add => collectionChangedEvent.Register(value);
-            remove => collectionChangedEvent.Unregister(value);
+            add => collectionChangedEvent.Register(value!);
+            remove => collectionChangedEvent.Unregister(value!);
         }
 
         public void Add(TTrack track)

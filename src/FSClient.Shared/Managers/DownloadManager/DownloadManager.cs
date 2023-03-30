@@ -57,7 +57,7 @@
             this.shareService = shareService;
             this.launcherService = launcherService;
 
-            this.downloadService.DownloadProgressChanged += DownloadService_DownloadProgressChanged;
+            this.downloadService.DownloadProgressChanged += DownloadService_DownloadProgressChanged!;
 
             httpClient = new HttpClient(new HttpClientHandler()
             {

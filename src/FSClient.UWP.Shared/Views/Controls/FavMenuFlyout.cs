@@ -30,8 +30,8 @@
             viewModelFactory = new Lazy<FavoriteMenuViewModel>(() =>
                 ViewModelLocator.Current.ResolveViewModel<FavoriteMenuViewModel>());
 
-            Opening += OnOpening;
-            Closed += OnClosed;
+            Opening += OnOpening!;
+            Closed += OnClosed!;
             AdditionalItems = new List<MenuFlyoutItemBase>();
         }
 
@@ -61,8 +61,8 @@
 
             var viewModel = viewModelFactory.Value;
             viewModel.Items = ItemInfoSource?.Count > 0 ? ItemInfoSource : new[] {ItemInfo!};
-            viewModel.CheckedKinds.CollectionChanged += CheckedTypes_CollectionChanged;
-            viewModel.AvailableKinds.CollectionChanged += AvailableTypes_CollectionChanged;
+            viewModel.CheckedKinds.CollectionChanged += CheckedTypes_CollectionChanged!;
+            viewModel.AvailableKinds.CollectionChanged += AvailableTypes_CollectionChanged!;
 
             var toggles = viewModel
                 .AvailableKinds
@@ -111,8 +111,8 @@
         private void OnClosed(object sender, object e)
         {
             var viewModel = viewModelFactory.Value;
-            viewModel.CheckedKinds.CollectionChanged -= CheckedTypes_CollectionChanged;
-            viewModel.AvailableKinds.CollectionChanged -= AvailableTypes_CollectionChanged;
+            viewModel.CheckedKinds.CollectionChanged -= CheckedTypes_CollectionChanged!;
+            viewModel.AvailableKinds.CollectionChanged -= AvailableTypes_CollectionChanged!;
         }
 
         private void CheckedTypes_CollectionChanged(object _, object __)

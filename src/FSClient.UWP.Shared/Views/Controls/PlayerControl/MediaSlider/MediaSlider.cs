@@ -119,7 +119,7 @@
 
         private void SliderThumb_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (e.PointerDeviceType != PointerDeviceType.Mouse
+            if (e.PointerDeviceType != Microsoft.UI.Input.PointerDeviceType.Mouse
                 || sliderRectangle == null
                 || sliderThumb == null)
             {
@@ -134,7 +134,7 @@
 
         private async void ProgressSlider_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerDeviceType != PointerDeviceType.Mouse
+            if (e.Pointer.PointerDeviceType != Microsoft.UI.Input.PointerDeviceType.Mouse
                 || sliderToolTipTextBlock == null
                 || sliderRectangle == null
                 || sliderThumb == null
@@ -149,9 +149,9 @@
             var posTimeSpan = GetTimeSpanFromSliderPosition(pos);
 
             sliderToolTipPopup!.Tag = posTimeSpan;
-
-            sliderToolTipTextBlock.Text = posTimeSpan.ToFriendlyString(false, Duration.TotalHours >= 1);
-
+            if(sliderToolTipTextBlock is not null) { 
+                sliderToolTipTextBlock.Text = posTimeSpan.ToFriendlyString(false, Duration.TotalHours >= 1);
+            }
             sliderToolTipPopup.IsOpen = true;
 
             sliderToolTipPopup.Child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));

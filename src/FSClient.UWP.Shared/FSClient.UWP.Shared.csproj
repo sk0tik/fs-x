@@ -1,49 +1,52 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
-  <Import Project="..\UWP.Build.Props" />
+	<!--Import Project="..\UWP.Build.Props" /-->
 
   <PropertyGroup>
     <IsUno>false</IsUno>
-    <TargetFrameworks>$(UwpTargetFramework)</TargetFrameworks>
-    <TargetFrameworks Condition="'$(IsWinUI)' == 'true' OR '$(IsUno)' == 'true'">$(TargetFrameworks);net5.0</TargetFrameworks>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == '$(UwpTargetFramework)'">
-    <DefineConstants>$(DefineConstants);UAP</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0' AND '$(IsWinUI)' == 'true'">
+    <!--DefineConstants>$(DefineConstants);UAP</DefineConstants-->
     <Platforms>x86;x64</Platforms>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
     <DefineConstants>$(DefineConstants);WINUI3</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0' AND '$(IsUno)' == 'true'">
-    <DefineConstants>$(DefineConstants);WINUI3;UNO</DefineConstants>
+	  <UseWinUI>true</UseWinUI>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+	  <!--PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" /-->
+	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
+	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
     <PackageReference Include="Nito.AsyncEx.Oop" Version="5.1.2" />
-    <PackageReference Include="System.Runtime" Version="4.3.1" />
-    <PackageReference Include="WindowsStateTriggersEx" Version="1.4.0" />
+	  <PackageReference Include="System.Runtime" Version="4.3.1" />
+	  <!--PackageReference Include="WindowsStateTriggersEx" Version="1.4.0" /-->
+	  <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.7" />
+
+	<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.3.1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230313.1" />
+    <!--PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" /-->
+    <!--PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.18362" /-->
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.2" />
+
+
+
+	  <!--PackageReference Include="Microsoft.Windows.SDK.NET.ref" Version="10.0.18362.6" /-->
+
+	  <!--PackageReference Include="Microsoft.WinUI" Version="2.7.0" /-->
+	  <!--PackageReference Include="Microsoft.WinUI" Version="2.7.0" /!-->
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == '$(UwpTargetFramework)'">
+  <!--ItemGroup Condition="'$(TargetFramework)' == '$(UwpTargetFramework)'">
     <PackageReference Include="Microsoft.UI.Xaml" Version="$(MicrosoftUiPackageVersion)" />
     <PackageReference Include="Win2D.uwp" Version="1.26.0" />
     <PackageReference Include="XamlTreeDump" Version="1.0.9" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0' AND '$(IsWinUI)' == 'true'">
+  </ItemGroup-->
+  <!--ItemGroup Condition="'$(TargetFramework)' == 'net5.0' AND '$(IsWinUI)' == 'true'">
     <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.7" />
     <PackageReference Include="Microsoft.WinUI" Version="$(MicrosoftUiPackageVersion)" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0' AND '$(IsUno)' == 'true'">
-    <PackageReference Include="Uno.WinUI" Version="3.1.10" />
-    <PackageReference Include="Uno.WinUI.WebAssembly" Version="3.4.0" />
-  </ItemGroup>
+  </ItemGroup-->
 
   <ItemGroup>
     <ProjectReference Include="..\FSClient.Shared\FSClient.Shared.csproj" />
@@ -55,6 +58,7 @@
   <ItemGroup>
     <EmbeddedResource Include="**\*.rd.xml" />
     <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Compile Remove="Services\Logger\AppCenterLogger.cs" />
     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
   </ItemGroup>
 

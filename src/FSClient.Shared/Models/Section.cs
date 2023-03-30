@@ -100,7 +100,7 @@
             return Title;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Section section && Equals(section);
         }

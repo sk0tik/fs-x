@@ -35,7 +35,7 @@
 
         protected override MirrorGetterConfig PrepareMirrorGetterConfig()
         {
-            var referer = new Uri(Properties[YohohoRefererKey], UriKind.Absolute);
+            var referer = new Uri(Properties[YohohoRefererKey]!, UriKind.Absolute);
 
             return base.PrepareMirrorGetterConfig() with
             {

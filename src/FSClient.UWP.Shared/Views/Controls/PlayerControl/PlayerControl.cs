@@ -356,13 +356,14 @@
             DispatcherHelper.GetForCurrentOrMainView().AcceleratorKeyActivated +=
                 acceleratorKeyActivatedListener.OnEvent;
 
-            managedWindow.WindowModeChanged += ManagedWindow_WindowModeChanged;
-            managedWindow.FocusChanged += ManagedWindow_FocusChanged;
+            managedWindow.WindowModeChanged += ManagedWindow_WindowModeChanged!;
+            managedWindow.FocusChanged += ManagedWindow_FocusChanged!;
 
-            Application.Current.EnteredBackground += App_EnteredBackground;
-            Application.Current.LeavingBackground += App_LeavingBackground;
+            // HACK: UWP Only?
+            //Application.Current.EnteredBackground += App_EnteredBackground;
+            //Application.Current.LeavingBackground += App_LeavingBackground;
 
-            positionUpdater.Tick += PositionUpdater_Tick;
+            positionUpdater.Tick += PositionUpdater_Tick!;
 
             // For case when control is loaded after unload
             if (!(TransportControls is CustomTransportControls))
@@ -402,13 +403,14 @@
 
             acceleratorKeyActivatedListener?.Detach();
 
-            managedWindow.FocusChanged -= ManagedWindow_FocusChanged;
-            managedWindow.WindowModeChanged -= ManagedWindow_WindowModeChanged;
+            managedWindow.FocusChanged -= ManagedWindow_FocusChanged!;
+            managedWindow.WindowModeChanged -= ManagedWindow_WindowModeChanged!;
 
-            Application.Current.EnteredBackground -= App_EnteredBackground;
-            Application.Current.LeavingBackground -= App_LeavingBackground;
+            // HACK: UWP Only?
+            //Application.Current.EnteredBackground -= App_EnteredBackground;
+            //Application.Current.LeavingBackground -= App_LeavingBackground;
 
-            positionUpdater.Tick -= PositionUpdater_Tick;
+            positionUpdater.Tick -= PositionUpdater_Tick!;
 
             DisplayInformation.AutoRotationPreferences = DisplayOrientations.None;
 

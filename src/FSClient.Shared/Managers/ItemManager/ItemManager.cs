@@ -156,12 +156,12 @@
 
                 homePage.TopItems = homePage.TopItems
                     .Where(item => !blockList.Contains(item.Key)
-                        && (filterRegex == null || !filterRegex.IsMatch(item.Title)));
+                        && (filterRegex == null || !filterRegex.IsMatch(item.Title!)));
 
                 homePage.HomeItems = homePage.HomeItems
                     .SelectMany(g => g.Select(item => (g.Key, item)))
                     .Where(t => !blockList.Contains(t.item.Key)
-                        && (filterRegex == null || !filterRegex.IsMatch(t.item.Title)))
+                        && (filterRegex == null || !filterRegex.IsMatch(t.item.Title!)))
                     .GroupBy(t => t.Key, t => t.item);
 
                 return homePage;

@@ -162,7 +162,7 @@
                     return;
                 }
 
-                FromYearUpDown.DateChanged -= FromYearUpDown_DateChanged;
+                FromYearUpDown.DateChanged -= FromYearUpDown_DateChanged!;
 
                 FromYearUpDown.MinYear = new DateTimeOffset(new DateTime(YearLimit.Start.Value, 1, 1));
                 if (SelectedYear.HasValue)
@@ -176,7 +176,7 @@
                     FromYearUpDown.MaxYear = new DateTimeOffset(new DateTime(YearLimit.End.Value - 1, 1, 1));
                 }
 
-                FromYearUpDown.DateChanged += FromYearUpDown_DateChanged;
+                FromYearUpDown.DateChanged += FromYearUpDown_DateChanged!;
             }
             catch (Exception ex)
             {
@@ -193,7 +193,7 @@
                     return;
                 }
 
-                ToYearUpDown.DateChanged -= ToYearUpDown_DateChanged;
+                ToYearUpDown.DateChanged -= ToYearUpDown_DateChanged!;
 
                 ToYearUpDown.MaxYear = new DateTimeOffset(new DateTime(YearLimit.End.Value, 1, 1));
                 if (SelectedYear.HasValue)
@@ -207,7 +207,7 @@
                     ToYearUpDown.MinYear = new DateTimeOffset(new DateTime(YearLimit.Start.Value, 1, 1));
                 }
 
-                ToYearUpDown.DateChanged += ToYearUpDown_DateChanged;
+                ToYearUpDown.DateChanged += ToYearUpDown_DateChanged!;
             }
             catch (Exception ex)
             {

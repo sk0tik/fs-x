@@ -205,7 +205,7 @@
                                 (g, i) => UnionEpisodeEntries(i, false)
                                     .GroupBy(_ => g, MapToViewModel)
                                     .FirstOrDefault())
-                            .ToList();
+                            .ToList()!;
                     }
                     else
                     {

@@ -184,7 +184,7 @@
                                     await UpdatePageAsync(page).ConfigureAwait(false);
                                 }
                             }
-                            favoriteManager.FavoritesChanged += updateLambda;
+                            favoriteManager.FavoritesChanged += updateLambda!;
 
                             return page;
                         })

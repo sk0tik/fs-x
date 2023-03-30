@@ -16,7 +16,7 @@
             SelectionModeToggleCommand = new Command(() => IsInSelectionMode = !IsInSelectionMode);
             AllSelectedToggleCommand = new Command(() => IsAllSelected = !IsAllSelected, () => IsInSelectionMode);
             selectedItems = new SafeObservableCollection<object>();
-            selectedItems.CollectionChanged += SelectedItems_CollectionChanged;
+            selectedItems.CollectionChanged += SelectedItems_CollectionChanged!;
         }
 
         protected abstract IEnumerable<object> Items { get; }

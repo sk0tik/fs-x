@@ -62,7 +62,7 @@
 
             var json = await siteProvider
                 .HttpClient
-                .GetBuilder(new Uri(apiDomain, "q.php"))
+                .GetBuilder(new Uri(apiDomain!, "q.php"))
                 .WithArgument("q", itemInfo.Title)
                 // 200 for "videos"
                 .WithArgument("cat", "200")
@@ -166,7 +166,7 @@
             }
 
             var cc = cat.ToString();
-            var main = cc.FirstOrDefault() switch
+            var main = cc!.FirstOrDefault() switch
             {
                 '1' => "Audio",
                 '2' => "Video",

@@ -4,11 +4,12 @@
     using System.Collections.Generic;
     using System.Globalization;
 
-    using Windows.UI.Xaml.Data;
+    //using Windows.UI.Xaml.Data;
 
     using FSClient.Localization.Resources;
     using FSClient.Shared.Services;
     using FSClient.Shared.Helpers;
+    using Microsoft.UI.Xaml.Data;
 
     public class LocalizationConverter : IValueConverter
     {
